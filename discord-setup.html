@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discord Setup | Potateyy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="icon" href="favicon.ico">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:#0f172a;
+color:white;
+
+overflow-x:hidden;
+
+}
+
+
+/* Animated background */
+
+.background{
+
+position:fixed;
+
+inset:0;
+
+z-index:-10;
+
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#111827,
+#1e1b4b
+);
+
+overflow:hidden;
+
+}
+
+.background::before{
+
+content:"";
+
+position:absolute;
+
+width:1600px;
+height:1600px;
+
+left:-700px;
+top:-500px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(168,85,247,.22),
+
+transparent 70%
+
+);
+
+filter:blur(80px);
+
+animation:blob1 20s infinite alternate ease-in-out;
+
+}
+
+.background::after{
+
+content:"";
+
+position:absolute;
+
+width:1400px;
+height:1400px;
+
+right:-500px;
+bottom:-500px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(59,130,246,.15),
+
+transparent 70%
+
+);
+
+filter:blur(80px);
+
+animation:blob2 25s infinite alternate ease-in-out;
+
+}
+
+@keyframes blob1{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+100%{
+
+transform:translate(200px,120px);
+
+}
+
+}
+
+@keyframes blob2{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+100%{
+
+transform:translate(-200px,-150px);
+
+}
+
+}
+
+
+/* General */
+
+section{
+
+max-width:1300px;
+
+margin:auto;
+
+padding:120px 40px;
+
+}
+
+.section-title{
+
+font-size:3rem;
+
+margin-bottom:60px;
+
+text-align:center;
+
+color:#a855f7;
+
+}
+
+
+/* Card */
+
+.card{
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.08),
+
+rgba(255,255,255,.03)
+
+);
+
+border:1px solid rgba(255,255,255,.1);
+
+backdrop-filter:blur(25px);
+
+border-radius:30px;
+
+padding:40px;
+
+}
+
+
+/* Hero */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:5rem;
+
+margin-bottom:30px;
+
+}
+
+.hero h1 span{
+
+color:#a855f7;
+
+}
+
+.hero p{
+
+font-size:1.2rem;
+
+max-width:800px;
+
+margin:auto;
+
+line-height:2;
+
+color:#cbd5e1;
+
+}
+
+.back-btn{
+
+display:inline-block;
+
+margin-top:40px;
+
+padding:18px 32px;
+
+border-radius:18px;
+
+background:#a855f7;
+
+color:white;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+.back-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 20px 40px rgba(168,85,247,.3);
+
+}
+
+.gallery-section{
+
+padding-top:40px;
+
+}
+
+@media(max-width:768px){
+
+.gallery-container{
+
+flex-direction:column;
+
+}
+
+.gallery-btn{
+
+width:55px;
+height:55px;
+
+}
+
+.hero h1{
+
+font-size:3rem;
+
+}
+
+.section-title{
+
+font-size:2.2rem;
+
+}
+
+}
+
+.gallery-frame{
+
+width:100%;
+
+max-width:1200px;
+
+padding:25px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.03)
+);
+
+border:1px solid rgba(255,255,255,.1);
+
+backdrop-filter:blur(25px);
+
+border-radius:30px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.3);
+
+}
+
+.gallery-frame img{
+
+width:100%;
+
+border-radius:20px;
+
+transition:.5s;
+
+}
+
+.gallery-btn{
+
+width:65px;
+height:65px;
+
+border:none;
+
+background:#a855f7;
+
+color:white;
+
+font-size:1.5rem;
+
+border-radius:50%;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.gallery-frame img{
+
+cursor:pointer;
+
+}
+
+.gallery-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 20px 40px rgba(168,85,247,.3);
+
+}
+
+.gallery-caption{
+
+margin-top:25px;
+
+font-size:1.1rem;
+
+color:#cbd5e1;
+
+text-align:center;
+
+}
+
+.gallery-dots{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:35px;
+
+flex-wrap:wrap;
+
+}
+
+.gallery-dot{
+
+width:12px;
+height:12px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.gallery-dot.active{
+
+background:#a855f7;
+
+box-shadow:
+0 0 20px #a855f7;
+
+}
+
+.stats-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+
+}
+
+.stat-card{
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.5s;
+
+}
+
+.stat-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+left:-50%;
+
+width:200%;
+height:200%;
+
+background:
+
+radial-gradient(
+circle,
+rgba(168,85,247,.15),
+transparent 70%
+);
+
+opacity:0;
+
+transition:.5s;
+
+}
+
+.stat-card:hover::before{
+
+opacity:1;
+
+}
+
+.stat-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.stat-number{
+
+font-size:3.5rem;
+
+font-weight:700;
+
+color:#a855f7;
+
+margin-bottom:15px;
+
+}
+
+.stat-card h3{
+
+margin-bottom:15px;
+
+}
+
+.stat-card p{
+
+line-height:1.8;
+
+color:#cbd5e1;
+
+}
+
+.features-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:25px;
+
+}
+
+.feature-card{
+
+text-align:center;
+
+transition:.5s;
+
+}
+
+.feature-card h3{
+
+margin-bottom:20px;
+
+color:#a855f7;
+
+}
+
+.feature-card p{
+
+line-height:1.9;
+
+color:#cbd5e1;
+
+}
+
+.feature-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.contact-card{
+
+max-width:900px;
+
+margin:auto;
+
+text-align:center;
+
+}
+
+.contact-card p{
+
+line-height:2;
+
+color:#cbd5e1;
+
+margin-top:20px;
+
+}
+
+.home-btn{
+
+display:inline-block;
+
+margin-top:40px;
+
+padding:18px 35px;
+
+border-radius:18px;
+
+background:#a855f7;
+
+color:white;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+.home-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 20px 40px rgba(168,85,247,.3);
+
+}
+
+.faq-card h3{
+
+color:#a855f7;
+
+margin-bottom:15px;
+
+}
+
+.faq-card p{
+
+line-height:1.8;
+
+color:#cbd5e1;
+
+}
+
+/* Footer */
+
+footer{
+
+margin-top:100px;
+
+padding:70px 20px;
+
+text-align:center;
+
+border-top:1px solid rgba(255,255,255,.1);
+
+}
+
+footer h2{
+
+color:#a855f7;
+
+margin-bottom:20px;
+
+}
+
+footer p{
+
+color:#94a3b8;
+
+line-height:2;
+
+}
+
+
+/* Fullscreen image */
+
+.lightbox{
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.85);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.4s;
+
+z-index:999;
+
+}
+
+.lightbox.show{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+.lightbox img{
+
+max-width:90%;
+max-height:90%;
+object-fit:contain;
+
+}
+
+
+/* Copy button */
+
+.copy-btn{
+
+margin-top:25px;
+
+padding:15px 30px;
+
+border:none;
+
+border-radius:15px;
+
+background:#a855f7;
+
+color:white;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.copy-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 15px 30px rgba(168,85,247,.3);
+
+}
+
+/* Popup */
+
+.popup{
+
+position:fixed;
+
+top:30px;
+
+right:-300px;
+
+padding:18px 30px;
+
+background:#22c55e;
+
+color:white;
+
+border-radius:15px;
+
+transition:.5s;
+
+z-index:1000;
+
+}
+
+.popup.show{
+
+right:30px;
+
+}
+
+
+/* Floating particles */
+
+.particles span{
+
+position:fixed;
+
+width:4px;
+
+height:4px;
+
+background:rgba(255,255,255,.15);
+
+border-radius:50%;
+
+animation:float 20s linear infinite;
+
+z-index:-1;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(110vh);
+
+opacity:0;
+
+}
+
+50%{
+
+opacity:.4;
+
+}
+
+100%{
+
+transform:translateY(-100px);
+
+opacity:0;
+
+}
+
+}
+
+.gallery-frame img{
+
+transition:.4s;
+opacity:1;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="particles">
+
+<span style="left:10%;animation-duration:20s"></span>
+<span style="left:25%;animation-duration:16s"></span>
+<span style="left:40%;animation-duration:23s"></span>
+<span style="left:60%;animation-duration:18s"></span>
+<span style="left:75%;animation-duration:25s"></span>
+<span style="left:90%;animation-duration:21s"></span>
+
+</div>
+
+<div class="background">
+
+</div>
+
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+⚙️ <span>Discord Setup</span>
+
+</h1>
+
+<p>
+
+Professional Discord setups built with organization, automation, and community experience in mind. Below are examples of channels, ticket systems, applications, role connections, moderation systems, and custom configurations I've created.
+
+</p>
+
+<a
+href="index.html"
+class="back-btn">
+
+← Back Home
+
+</a>
+
+</div>
+
+</section>
+
+<section class="gallery-section">
+
+<h2 class="section-title">
+
+Gallery
+
+</h2>
+
+<div class="gallery-container">
+
+<button
+class="gallery-btn"
+onclick="prevImage()">
+
+❮
+
+</button>
+
+<div class="gallery-frame">
+
+<img
+id="galleryImage"
+src="images/setup1.png">
+
+<div
+class="gallery-caption"
+id="galleryCaption">
+
+Ticket System Setup
+
+</div>
+
+</div>
+
+<button
+class="gallery-btn"
+onclick="nextImage()">
+
+❯
+
+</button>
+
+</div>
+
+<div class="gallery-dots">
+
+<span class="gallery-dot active"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+<span class="gallery-dot"></span>
+
+</div>
+
+</section>
+
+<script>
+
+const images=[
+
+"images/setup1.png",
+"images/setup2.png",
+"images/setup3.png",
+"images/setup4.png",
+"images/setup5.png",
+"images/setup6.png",
+"images/setup7.png",
+"images/setup8.png",
+"images/setup9.png",
+"images/setup10.png",
+"images/setup11.png",
+"images/setup12.png",
+"images/setup13.png"
+
+];
+
+const captions=[
+
+"Ticket System Setup",
+"Application System",
+"Role Connections",
+"Advanced Role Connections",
+"Member Role Connections",
+"Custom Messages",
+"Ticket Panels",
+"Staff Commands",
+"Staff Hub",
+"Staff Updates",
+"Ticket Embed System",
+"Honeypot Security System",
+"Welcome System"
+
+];
+
+let currentImage=0;
+
+const img=
+document.getElementById("galleryImage");
+
+const caption=
+document.getElementById("galleryCaption");
+
+const dots=
+document.querySelectorAll(".gallery-dot");
+
+function showImage(index){
+
+currentImage=index;
+
+function showImage(index){
+
+currentImage=index;
+
+img.style.opacity=0;
+
+setTimeout(()=>{
+
+img.src=images[index];
+
+caption.innerHTML=captions[index];
+
+img.style.opacity=1;
+
+},200);
+
+dots.forEach(dot=>
+dot.classList.remove("active"));
+
+dots[index].classList.add("active");
+
+}
+
+caption.innerHTML=captions[index];
+
+dots.forEach(dot=>
+dot.classList.remove("active"));
+
+dots[index].classList.add("active");
+
+}
+
+function nextImage(){
+
+currentImage++;
+
+if(currentImage>=images.length){
+
+currentImage=0;
+
+}
+
+showImage(currentImage);
+
+}
+
+function prevImage(){
+
+currentImage--;
+
+if(currentImage<0){
+
+currentImage=images.length-1;
+
+}
+
+showImage(currentImage);
+
+}
+
+dots.forEach((dot,index)=>{
+
+dot.onclick=()=>{
+
+showImage(index);
+
+};
+
+});
+
+let slideshow = setInterval(nextImage,8000);
+
+function resetSlideshow(){
+
+clearInterval(slideshow);
+
+slideshow=setInterval(nextImage,8000);
+
+}
+
+</script>
+
+<section>
+
+<h2 class="section-title">
+
+Statistics
+
+</h2>
+
+<div class="stats-grid">
+
+<div class="card stat-card">
+
+<div class="stat-number">
+
+100+
+
+</div>
+
+<h3>
+
+📂 Channels Created
+
+</h3>
+
+<p>
+
+Experience designing organized category structures, channel layouts, and role systems.
+
+</p>
+
+</div>
+
+
+
+<div class="card stat-card">
+
+<div class="stat-number">
+
+30+
+
+</div>
+
+<h3>
+
+🤖 Bots Configured
+
+</h3>
+
+<p>
+
+Configured moderation, tickets, applications, logging, reaction roles, and utility bots.
+
+</p>
+
+</div>
+
+
+
+<div class="card stat-card">
+
+<div class="stat-number">
+
+20+
+
+</div>
+
+<h3>
+
+🎫 Ticket Systems
+
+</h3>
+
+<p>
+
+Custom ticket setups using Ticket Tool, Tickety, and advanced support workflows.
+
+</p>
+
+</div>
+
+
+
+<div class="card stat-card">
+
+<div class="stat-number">
+
+15+
+
+</div>
+
+<h3>
+
+📋 Application Systems
+
+</h3>
+
+<p>
+
+Built application forms and staff recruitment systems for communities of all sizes.
+
+</p>
+
+</div>
+
+
+
+<div class="card stat-card">
+
+<div class="stat-number">
+
+25+
+
+</div>
+
+<h3>
+
+🛡 Moderation Systems
+
+</h3>
+
+<p>
+
+Created punishment logs, automod setups, security systems, and moderation tools.
+
+</p>
+
+</div>
+
+
+
+<div class="card stat-card">
+
+<div class="stat-number">
+
+50+
+
+</div>
+
+<h3>
+
+⚙ Custom Configurations
+
+</h3>
+
+<p>
+
+Developed unique setups tailored to each community's needs and management style.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+
+Features
+
+</h2>
+
+<div class="features-grid">
+
+<div class="card feature-card">
+
+<h3>
+
+🎫 Ticket Systems
+
+</h3>
+
+<p>
+
+Professional support systems with custom panels, categories, and permissions.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+📋 Applications
+
+</h3>
+
+<p>
+
+Staff applications and recruitment systems designed for organized hiring.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+🤖 Bot Setup
+
+</h3>
+
+<p>
+
+Setup and configuration of moderation, utility, and automation bots.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+🛡 Moderation
+
+</h3>
+
+<p>
+
+Punishment logs, automod, security systems, and moderation tools.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+🔗 Role Connections
+
+</h3>
+
+<p>
+
+Automatic role systems and advanced member verification methods.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+👋 Welcome Systems
+
+</h3>
+
+<p>
+
+Custom welcomes, onboarding, and join messages to improve first impressions.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+🚨 Security
+
+</h3>
+
+<p>
+
+Anti-spam, honeypot systems, and server protection configurations.
+
+</p>
+
+</div>
+
+<div class="card feature-card">
+
+<h3>
+
+⚙ Custom Configurations
+
+</h3>
+
+<p>
+
+Unique solutions tailored to each community and its specific needs.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+
+FAQ
+
+</h2>
+
+<div class="features-grid">
+
+<div class="card faq-card">
+
+<h3>
+
+❓ What bots do you configure?
+
+</h3>
+
+<p>
+
+Ticket Tool, Sapphire, Dyno, Carl-bot, Statbot, Security, and many others.
+
+</p>
+
+</div>
+
+<div class="card faq-card">
+
+<h3>
+
+❓ Can you redesign existing servers?
+
+</h3>
+
+<p>
+
+Yes! I can improve existing communities or create completely new setups.
+
+</p>
+
+</div>
+
+<div class="card faq-card">
+
+<h3>
+
+❓ Do you create custom systems?
+
+</h3>
+
+<p>
+
+Absolutely. Every server is different, and I tailor setups to fit your needs.
+
+</p>
+
+</div>
+
+<div class="card faq-card">
+
+<h3>
+
+❓ Are small communities welcome?
+
+</h3>
+
+<p>
+
+Of course! I enjoy helping communities of all sizes.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="card contact-card">
+
+<h2 class="section-title">
+
+Interested?
+
+</h2>
+
+<p>
+
+If you're interested in a professional Discord setup, feel free to contact me.
+
+</p>
+
+<br>
+
+<h2 style="color:#a855f7;">
+
+💬 potateyy
+
+</h2>
+
+<button
+class="copy-btn"
+onclick="copyDiscord()">
+
+📋 Copy Username
+
+</button>
+
+<br>
+
+<a
+href="index.html"
+class="home-btn">
+
+← Back Home
+
+</a>
+
+</div>
+
+</section>
+
+<div
+class="popup"
+id="popup">
+
+✓ Username copied!
+
+</div>
+
+<div
+class="lightbox"
+id="lightbox">
+
+<img
+id="lightboxImg">
+
+</div>
+
+<footer>
+
+<h2>
+
+Potateyy
+
+</h2>
+
+<p>
+
+Discord Setup • Community Management • Staffing • Translation
+
+</p>
+
+<p>
+
+© 2026 Potateyy. All rights reserved.
+
+</p>
+
+</footer>
+
+<script>
+
+/* Lightbox */
+
+const lightbox =
+document.getElementById("lightbox");
+
+const lightboxImg =
+document.getElementById("lightboxImg");
+
+img.onclick=()=>{
+
+lightbox.classList.add("show");
+
+lightboxImg.src=img.src;
+
+};
+
+lightbox.onclick=()=>{
+
+lightbox.classList.remove("show");
+
+};
+
+
+/* Copy username */
+
+const popup =
+document.getElementById("popup");
+
+function copyDiscord(){
+
+function copyDiscord(){
+
+navigator.clipboard.writeText("potateyy")
+.then(()=>{
+
+popup.classList.add("show");
+
+setTimeout(()=>{
+popup.classList.remove("show");
+},2000);
+
+})
+.catch(()=>{
+
+alert("Failed to copy username.");
+
+});
+
+}
+
+popup.classList.add("show");
+
+setTimeout(()=>{
+
+popup.classList.remove("show");
+
+},2000);
+
+}
+
+</script>
+
+</body>
+</html>
