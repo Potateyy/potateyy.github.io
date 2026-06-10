@@ -2111,27 +2111,11 @@ behavior:"smooth"
 
 });
 
-const text = "Potateyy";
+const words=[
 
-let charIndex = 0;
+"Potateyy",
 
-const typing = document.getElementById("typing");
-
-function type(){
-
-if(charIndex < text.length){
-
-typing.innerHTML += text.charAt(charIndex);
-
-charIndex++;
-
-setTimeout(type,100);
-
-}
-
-}
-
-type();
+];
 
 let wordIndex=0;
 let charIndex=0;
