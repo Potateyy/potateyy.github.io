@@ -38,12 +38,72 @@ color:#0f172a;
 /* Background */
 
 .background{
+
 position:fixed;
 inset:0;
+
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#111827,
+#1e1b4b
+);
+
 overflow:hidden;
-z-index:-2;
-background:linear-gradient(135deg,#0f172a,#111827,#1e1b4b);
-transition:1s;
+
+z-index:-10;
+
+}
+
+.background::before{
+
+content:"";
+
+position:absolute;
+
+width:1600px;
+height:1600px;
+
+left:-700px;
+top:-500px;
+
+background:
+radial-gradient(
+circle,
+rgba(168,85,247,.25),
+transparent 70%
+);
+
+filter:blur(80px);
+
+animation:blob1 20s infinite alternate ease-in-out;
+
+}
+
+.background::after{
+
+content:"";
+
+position:absolute;
+
+width:1400px;
+height:1400px;
+
+right:-500px;
+bottom:-500px;
+
+background:
+radial-gradient(
+circle,
+rgba(56,189,248,.2),
+transparent 70%
+);
+
+filter:blur(80px);
+
+animation:blob2 25s infinite alternate ease-in-out;
+
 }
 
 body.light-mode .background{
@@ -78,15 +138,41 @@ animation:blob2 20s infinite alternate ease-in-out;
 }
 
 @keyframes blob1{
-100%{
-transform:translate(180px,120px);
+
+0%{
+
+transform:
+translate(0,0)
+rotate(0deg);
+
 }
+
+100%{
+
+transform:
+translate(200px,150px)
+rotate(60deg);
+
+}
+
 }
 
 @keyframes blob2{
-100%{
-transform:translate(-180px,-120px);
+
+0%{
+
+transform:
+translate(0,0);
+
 }
+
+100%{
+
+transform:
+translate(-200px,-150px);
+
+}
+
 }
 
 /* Floating Particles */
@@ -650,11 +736,25 @@ body.light-mode .footer p{
 color:#64748b;
 }
 
+#particles{
+
+position:fixed;
+
+inset:0;
+
+z-index:-1;
+
+pointer-events:none;
+
+}
+
 </style>
 
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
 
 <div class="background"></div>
 
@@ -704,7 +804,13 @@ Potateyy
 
 <h1>
 
-Hi, I'm <span>Potateyy</span>
+Hi, I'm
+
+<br>
+
+<span id="typing">
+
+</span>
 
 </h1>
 
@@ -758,12 +864,73 @@ gap:25px;
 }
 
 .card{
-background:rgba(255,255,255,.05);
+position:relative;
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.08),
+rgba(255,255,255,.03)
+);
+
 border:1px solid rgba(255,255,255,.1);
-backdrop-filter:blur(15px);
-border-radius:25px;
+backdrop-filter:blur(25px);
+-webkit-backdrop-filter:blur(25px);
+
+border-radius:30px;
 padding:35px;
-transition:.4s;
+
+overflow:hidden;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.15),
+inset 0 1px rgba(255,255,255,.08);
+
+transition:.5s;
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+left:-50%;
+
+width:200%;
+height:200%;
+
+background:
+radial-gradient(
+circle,
+rgba(255,255,255,.08),
+transparent 60%
+);
+
+opacity:0;
+
+transition:.6s;
+
+}
+
+.card:hover::before{
+
+opacity:1;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-8px);
+
+border-color:
+rgba(168,85,247,.4);
+
+box-shadow:
+
+0 20px 50px rgba(168,85,247,.2);
+
 }
 
 body.light-mode .card{
@@ -1979,6 +2146,184 @@ behavior:"smooth"
 });
 
 });
+
+const words=[
+
+"Potateyy",
+"a Discord Freelancer",
+"a Community Manager",
+"a Staff Manager",
+"a Translator"
+
+];
+
+let wordIndex=0;
+let charIndex=0;
+
+const typing=document.getElementById("typing");
+
+function type(){
+
+if(charIndex<words[wordIndex].length){
+
+typing.innerHTML+=words[wordIndex].charAt(charIndex);
+
+charIndex++;
+
+setTimeout(type,80);
+
+}else{
+
+setTimeout(erase,1500);
+
+}
+
+}
+
+function erase(){
+
+if(charIndex>0){
+
+typing.innerHTML=
+
+words[wordIndex].substring(0,charIndex-1);
+
+charIndex--;
+
+setTimeout(erase,40);
+
+}else{
+
+wordIndex++;
+
+if(wordIndex>=words.length){
+
+wordIndex=0;
+
+}
+
+setTimeout(type,300);
+
+}
+
+}
+
+type();
+
+const canvas =
+document.getElementById("particles");
+
+const ctx =
+canvas.getContext("2d");
+
+canvas.width=
+window.innerWidth;
+
+canvas.height=
+window.innerHeight;
+
+const particles=[];
+
+let mouse={
+
+x:null,
+y:null
+
+};
+
+window.addEventListener("mousemove",(e)=>{
+
+mouse.x=e.x;
+mouse.y=e.y;
+
+});
+
+class Particle{
+
+constructor(){
+
+this.x=Math.random()*canvas.width;
+this.y=Math.random()*canvas.height;
+
+this.size=2;
+
+this.dx=(Math.random()-.5)*.5;
+this.dy=(Math.random()-.5)*.5;
+
+}
+
+update(){
+
+this.x+=this.dx;
+this.y+=this.dy;
+
+if(mouse.x){
+
+const distX=
+mouse.x-this.x;
+
+const distY=
+mouse.y-this.y;
+
+this.x-=distX*.0008;
+this.y-=distY*.0008;
+
+}
+
+}
+
+draw(){
+
+ctx.beginPath();
+
+ctx.arc(
+this.x,
+this.y,
+this.size,
+0,
+Math.PI*2
+);
+
+ctx.fillStyle=
+"rgba(255,255,255,.15)";
+
+ctx.fill();
+
+}
+
+}
+
+for(let i=0;i<120;i++){
+
+particles.push(
+new Particle()
+);
+
+}
+
+function animate(){
+
+ctx.clearRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+particles.forEach(p=>{
+
+p.update();
+p.draw();
+
+});
+
+requestAnimationFrame(
+animate
+);
+
+}
+
+animate();
 
 </script>
 
