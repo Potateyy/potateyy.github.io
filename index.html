@@ -335,8 +335,106 @@ footer{
     text-align:center;
 }
 
+.testimonial-carousel{
+    max-width:800px;
+    margin:0 auto;
+    position:relative;
+}
+
+.testimonial{
+    display:none;
+    text-align:center;
+    padding:40px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:24px;
+    backdrop-filter:blur(12px);
+}
+
+.testimonial.active{
+    display:block;
+    animation:fade .4s ease;
+}
+
+.stars{
+    font-size:1.5rem;
+    color:#fbbf24;
+    margin-bottom:15px;
+}
+
+.testimonial p{
+    color:#cbd5e1;
+    line-height:1.8;
+    font-size:1.05rem;
+}
+
+.testimonial h4{
+    margin-top:20px;
+    color:#a855f7;
+}
+
+.carousel-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+.carousel-buttons button{
+    background:#a855f7;
+    border:none;
+    color:white;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:1.2rem;
+    transition:.25s ease;
+}
+
+.carousel-buttons button:hover{
+    transform:scale(1.1);
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
+let currentReview = 0;
+const reviews = document.querySelectorAll('.testimonial');
+
+function showReview(index){
+    reviews.forEach(review =>
+        review.classList.remove('active')
+    );
+
+    reviews[index].classList.add('active');
+}
+
+function nextReview(){
+    currentReview = (currentReview + 1) % reviews.length;
+    showReview(currentReview);
+}
+
+function prevReview(){
+    currentReview =
+        (currentReview - 1 + reviews.length) % reviews.length;
+    showReview(currentReview);
+}
+
+setInterval(nextReview, 5000);
+
+showReview(0);
+</script>
 <body>
 
 <div class="background"></div>
@@ -460,6 +558,58 @@ footer{
             </p>
         </div>
 
+    </div>
+</section>
+
+<section id="testimonials">
+    <h2 class="section-title">Client Testimonials</h2>
+
+    <div class="testimonial-carousel">
+
+        <div class="testimonial active">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Potateyy completely transformed our Discord server. The channel
+                organization, permissions, and bot setup were incredibly
+                professional. Our community became much easier to manage."
+            </p>
+            <h4>— Community Owner</h4>
+        </div>
+
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+                "The staffing system Potateyy built for us was exactly what we
+                needed. Applications, training resources, and staff structure
+                were all organized perfectly."
+            </p>
+            <h4>— SMP Administrator</h4>
+        </div>
+
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Excellent communication and management skills. Potateyy helped
+                improve engagement and created a much more professional
+                experience for our members."
+            </p>
+            <h4>— Discord Community Manager</h4>
+        </div>
+
+        <div class="testimonial">
+            <div class="stars">★★★★★</div>
+            <p>
+                "Fast, reliable, and knowledgeable. From server setup to staff
+                organization, everything was delivered to a high standard."
+            </p>
+            <h4>— Gaming Server Owner</h4>
+        </div>
+
+    </div>
+
+    <div class="carousel-buttons">
+        <button onclick="prevReview()">❮</button>
+        <button onclick="nextReview()">❯</button>
     </div>
 </section>
 
