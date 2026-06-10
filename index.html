@@ -177,18 +177,85 @@ section{
     text-align:center;
 }
 
-.contact-box{
-    max-width:700px;
-    margin:auto;
-    padding:40px;
-    border-radius:20px;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.1);
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    max-width:900px;
+    margin:0 auto 50px;
 }
 
-.contact h3{
+.contact-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    border-radius:24px;
+    padding:35px;
+    transition:all .3s ease;
+}
+
+.contact-card:hover{
+    transform:translateY(-8px);
+    border-color:#a855f7;
+    box-shadow:0 20px 40px rgba(168,85,247,0.15);
+}
+
+.contact-icon{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.contact-card h3{
+    color:#a855f7;
+    margin-bottom:10px;
+}
+
+.contact-card p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+    line-height:1.6;
+}
+
+.contact-info{
+    display:inline-block;
+    background:rgba(168,85,247,0.15);
+    border:1px solid rgba(168,85,247,0.3);
+    color:#c084fc;
+    padding:10px 18px;
+    border-radius:999px;
+    font-weight:600;
+}
+
+.contact-footer{
+    max-width:700px;
+    margin:0 auto;
+}
+
+.contact-footer h3{
     font-size:2rem;
     margin-bottom:15px;
+}
+
+.contact-footer p{
+    color:#cbd5e1;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+.contact-button{
+    display:inline-block;
+    background:linear-gradient(135deg,#a855f7,#7c3aed);
+    color:white;
+    text-decoration:none;
+    padding:14px 32px;
+    border-radius:14px;
+    font-weight:600;
+    transition:all .3s ease;
+}
+
+.contact-button:hover{
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 35px rgba(168,85,247,.4);
 }
 
 .discord-tag{
@@ -325,16 +392,37 @@ footer{
 </section>
 
 <section id="contact" class="contact">
-    <div class="contact-box">
-        <h3>Let's Work Together</h3>
-        <p>
-            Interested in hiring me for your Discord community?
-        </p>
-        <br>
-        <p class="discord-tag">
-            Discord: potateyy
+    <h2 class="section-title">Contact Me</h2>
 
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <div class="contact-icon">💬</div>
+            <h3>Discord</h3>
+            <p>Reach out directly on Discord for commissions, questions, or project discussions.</p>
+            <span class="contact-info">potateyy</span>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">📧</div>
+            <h3>Email</h3>
+            <p>Prefer email? Send me a message and I'll get back to you as soon as possible.</p>
+            <span class="contact-info">potateyy1@outlook.com</span>
+        </div>
+
+    </div>
+
+    <div class="contact-footer">
+        <h3>Ready to Improve Your Discord Server?</h3>
+        <p>
+            Whether you need a professional setup, community management,
+            staffing systems, or French translation services,
+            I'm here to help.
         </p>
+
+        <a href="mailto:potateyy1@outlook.com" class="contact-button">
+            Get In Touch
+        </a>
     </div>
 </section>
 
