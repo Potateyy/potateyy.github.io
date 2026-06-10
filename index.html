@@ -179,6 +179,37 @@ display:none;
 
 }
 
+#experience a:hover{
+color:#a855f7 !important;
+text-shadow:0 0 15px rgba(168,85,247,.7);
+}
+
+.server-link{
+color:white;
+text-decoration:none;
+position:relative;
+transition:.4s;
+}
+
+.server-link::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0%;
+height:2px;
+background:#a855f7;
+transition:.4s;
+}
+
+.server-link:hover{
+color:#a855f7;
+}
+
+.server-link:hover::after{
+width:100%;
+}
+
 </style>
 </head>
 <body>
@@ -281,7 +312,13 @@ Current Positions
 <div class="card" style="text-align:center;max-width:450px;margin:auto;">
 <h3>✨ Founder</h3>
 
-<h2>SparkleSMP</h2>
+<h2>
+<a href="https://discord.gg/sparklesmp"
+target="_blank"
+class="server-link">
+✨ SparkleSMP
+</a>
+</h2>
 
 <div class="server-size">
 👥 130+ Members
@@ -365,7 +402,7 @@ Statistics
 
 <div class="card" style="text-align:center;">
 <h1 style="color:#a855f7;font-size:3rem;">
-4+
+15+
 </h1>
 
 <h3>Communities Managed</h3>
@@ -409,22 +446,47 @@ Statistics
 About Me
 </h2>
 
-<div class="card" style="max-width:900px;margin:auto;text-align:center;">
+<div class="cards">
+
+<div class="card">
+
+<h3>👋 Who I Am</h3>
 
 <p style="line-height:1.9;color:#cbd5e1;">
-
-I'm Potateyy, a Discord freelancer dedicated to helping communities
-look professional, stay organized, and grow successfully.
-
-With experience ranging from smaller SMP communities to large
-50,000-member servers, I specialize in creating polished Discord
-experiences through server setup, management, staffing systems,
-and French translation.
-
-Whether you're starting a new community or improving an existing one,
-I'm here to help.
-
+Hi, I'm <span style="color:#a855f7;font-weight:600;">Potateyy</span>, a Discord freelancer passionate about helping communities build professional, organized, and engaging environments. I enjoy creating communities that are not only visually appealing but also easy to manage and enjoyable for members.
 </p>
+
+</div>
+
+<div class="card">
+
+<h3>📚 My Experience</h3>
+
+<p style="line-height:1.9;color:#cbd5e1;">
+Over the years, I've gained experience through multiple leadership and moderation positions. I've founded communities such as SparkleSMP and previously ShatterMC, owned RiftSMP, and served as a Senior Moderator at SMP Finder, a community with over 50,000 members. These roles have helped me develop strong skills in community management, staff coordination, moderation, and leadership.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>⚙️ What I Offer</h3>
+
+<p style="line-height:1.9;color:#cbd5e1;">
+I specialize in Discord setup, Discord management, staffing systems, and French translation. Whether you need a complete server setup, staff applications and handbooks, moderation systems, or help maintaining and growing your community, I strive to provide reliable and high-quality solutions tailored to your needs.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🎯 My Goal</h3>
+
+<p style="line-height:1.9;color:#cbd5e1;">
+My goal is simple: to help server owners turn their ideas into thriving communities. I believe that successful communities are built on strong foundations, professional organization, and positive member experiences. No matter the size of your server, I'm committed to helping you create something truly special.
+</p>
+
+</div>
 
 </div>
 
@@ -450,7 +512,7 @@ permissions, and bots were perfectly organized and looked incredibly professiona
 </p>
 
 <h4>
-— Community Owner
+— Server Owner
 </h4>
 
 </div>
@@ -462,12 +524,12 @@ permissions, and bots were perfectly organized and looked incredibly professiona
 </div>
 
 <p>
-"Excellent staffing systems and management. Applications, handbooks,
+"Excellent staffing systems and management. Applications,
 and moderation structure were all set up flawlessly."
 </p>
 
 <h4>
-— SMP Administrator
+— Server Admin
 </h4>
 
 </div>
@@ -501,7 +563,7 @@ Discord setup or community management."
 </p>
 
 <h4>
-— Community Manager
+— Manager
 </h4>
 
 </div>
