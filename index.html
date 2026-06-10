@@ -8,11 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -25,9 +30,9 @@ body{
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at top left,#8b5cf6 0%,transparent 35%),
-        radial-gradient(circle at bottom right,#06b6d4 0%,transparent 35%),
-        #0f172a;
+    radial-gradient(circle at top left,#8b5cf6 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#06b6d4 0%,transparent 35%),
+    #0f172a;
     z-index:-1;
 }
 
@@ -36,6 +41,10 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:25px 8%;
+    position:sticky;
+    top:0;
+    backdrop-filter:blur(10px);
+    background:rgba(15,23,42,.7);
 }
 
 .logo{
@@ -50,9 +59,9 @@ nav{
 }
 
 .nav-links a{
-    text-decoration:none;
     color:white;
-    transition:.3s;
+    text-decoration:none;
+    transition:.5s;
 }
 
 .nav-links a:hover{
@@ -60,12 +69,12 @@ nav{
 }
 
 .hero{
-    min-height:85vh;
+    min-height:90vh;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    padding:0 20px;
+    padding:20px;
 }
 
 .hero-content{
@@ -74,32 +83,30 @@ nav{
 
 .hero h1{
     font-size:4rem;
-    margin-bottom:15px;
+    margin-bottom:20px;
 }
 
-.hero h1 span{
+.hero span{
     color:#a855f7;
 }
 
 .hero p{
     color:#cbd5e1;
     font-size:1.2rem;
-    margin-bottom:30px;
 }
 
 .buttons{
+    margin-top:35px;
     display:flex;
     justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+    gap:20px;
 }
 
 .btn{
-    padding:14px 28px;
-    border-radius:12px;
+    padding:14px 30px;
+    border-radius:14px;
     text-decoration:none;
-    font-weight:600;
-    transition:.3s;
+    transition:.4s;
 }
 
 .primary{
@@ -107,22 +114,13 @@ nav{
     color:white;
 }
 
-.primary:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 35px rgba(168,85,247,.45);
-}
-
-.secondary:hover{
-    transform:translateY(-4px) scale(1.03);
-}
-
 .secondary{
     border:2px solid #a855f7;
     color:white;
 }
 
-.secondary:hover{
-    background:#a855f7;
+.btn:hover{
+    transform:translateY(-4px);
 }
 
 section{
@@ -137,528 +135,610 @@ section{
 
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
 }
 
 .card{
     background:rgba(255,255,255,.05);
     border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    padding:35px;
     backdrop-filter:blur(10px);
-    padding:30px;
-    border-radius:20px;
-    transition:.3s;
-}
-
-.card{
-    transform:translateY(0);
+    transition:.4s;
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.02);
+    transform:translateY(-8px);
     border-color:#a855f7;
-    box-shadow:0 20px 40px rgba(168,85,247,0.15);
 }
 
 .card h3{
-    margin-bottom:15px;
     color:#a855f7;
-}
-
-.about{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    color:#cbd5e1;
-    line-height:1.8;
-}
-
-.contact{
-    text-align:center;
-}
-
-.contact-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-    max-width:900px;
-    margin:0 auto 50px;
-}
-
-.contact-card{
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    backdrop-filter:blur(12px);
-    border-radius:24px;
-    padding:35px;
-    transition:all .3s ease;
-}
-
-.contact-card:hover{
-    transform:translateY(-8px);
-    border-color:#a855f7;
-    box-shadow:0 20px 40px rgba(168,85,247,0.15);
-}
-
-.contact-icon{
-    font-size:2.5rem;
     margin-bottom:15px;
-}
-
-.contact-card h3{
-    color:#a855f7;
-    margin-bottom:10px;
-}
-
-.contact-card p{
-    color:#cbd5e1;
-    margin-bottom:20px;
-    line-height:1.6;
-}
-
-.contact-info{
-    display:inline-block;
-    background:rgba(168,85,247,0.15);
-    border:1px solid rgba(168,85,247,0.3);
-    color:#c084fc;
-    padding:10px 18px;
-    border-radius:999px;
-    font-weight:600;
-}
-
-.contact-footer{
-    max-width:700px;
-    margin:0 auto;
-}
-
-.contact-footer h3{
-    font-size:2rem;
-    margin-bottom:15px;
-}
-
-.contact-footer p{
-    color:#cbd5e1;
-    margin-bottom:25px;
-    line-height:1.8;
-}
-
-.contact-button{
-    display:inline-block;
-    background:linear-gradient(135deg,#a855f7,#7c3aed);
-    color:white;
-    text-decoration:none;
-    padding:14px 32px;
-    border-radius:14px;
-    font-weight:600;
-    transition:all .3s ease;
-}
-
-.contact-button:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 35px rgba(168,85,247,.4);
-}
-
-.discord-tag{
-    color:#a855f7;
-    font-size:1.3rem;
-    font-weight:600;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#94a3b8;
-}
-
-@media(max-width:768px){
-    .hero h1{
-        font-size:2.8rem;
-    }
-
-    .nav-links{
-        display:none;
-    }
 }
 
 .server-size{
     display:inline-block;
-    margin:10px 0;
-    padding:8px 14px;
+    margin:15px 0;
+    padding:8px 16px;
     border-radius:999px;
-    background:rgba(168,85,247,0.15);
-    border:1px solid rgba(168,85,247,0.3);
+    background:rgba(168,85,247,.15);
     color:#c084fc;
-    font-weight:600;
 }
 
-.experience-heading{
-    text-align:center;
-    font-size:1.8rem;
-    margin-bottom:30px;
-    color:#ffffff;
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.8rem;
 }
 
-.past-heading{
-    margin-top:70px;
+.nav-links{
+display:none;
 }
 
-.card strong{
-    color:#ffffff;
-    font-size:1.05rem;
 }
 
-.fade-in{
-    opacity:0;
-    transform:translateY(25px);
-    animation:fadeUp .8s ease forwards;
-}
-
-@keyframes fadeUp{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.current-positions{
-    display:flex;
-    justify-content:center;
-    margin-bottom:60px;
-}
-
-.current-positions .card{
-    max-width:400px;
-    width:100%;
-}
-
-.current-positions .card{
-    text-align:center;
-}
-
-.testimonial-carousel{
-    max-width:800px;
-    margin:0 auto;
-    position:relative;
-}
-
-.testimonial{
-    display:none;
-    text-align:center;
-    padding:40px;
-    background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.1);
-    border-radius:24px;
-    backdrop-filter:blur(12px);
-}
-
-.testimonial.active{
-    display:block;
-    animation:fade .4s ease;
-}
-
-.stars{
-    font-size:1.5rem;
-    color:#fbbf24;
-    margin-bottom:15px;
-}
-
-.testimonial p{
-    color:#cbd5e1;
-    line-height:1.8;
-    font-size:1.05rem;
-}
-
-.testimonial h4{
-    margin-top:20px;
-    color:#a855f7;
-}
-
-.carousel-buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:25px;
-}
-
-.carousel-buttons button{
-    background:#a855f7;
-    border:none;
-    color:white;
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:1.2rem;
-    transition:.25s ease;
-}
-
-.carousel-buttons button:hover{
-    transform:scale(1.1);
-}
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(10px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    let currentReview = 0;
-    const reviews = document.querySelectorAll(".testimonial");
-
-    function showReview(index) {
-        reviews.forEach(review => {
-            review.classList.remove("active");
-        });
-
-        reviews[index].classList.add("active");
-    }
-
-    function nextReview() {
-        currentReview = (currentReview + 1) % reviews.length;
-        showReview(currentReview);
-    }
-
-    function prevReview() {
-        currentReview = (currentReview - 1 + reviews.length) % reviews.length;
-        showReview(currentReview);
-    }
-
-    window.nextReview = nextReview;
-    window.prevReview = prevReview;
-
-    showReview(0);
-
-    setInterval(nextReview, 5000);
-
-});
-</script>
 </style>
 </head>
-</script>
 <body>
 
 <div class="background"></div>
 
 <nav>
-    <div class="logo">Potateyy</div>
-    <div class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-    </div>
+<div class="logo">Potateyy</div>
+
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#experience">Experience</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>Hi, I'm <span>Potateyy</span></h1>
-        <p>
-            Professional Discord Freelancer specializing in server setup,
-            community management, staffing systems, and French translation.
-        </p>
 
-        <div class="buttons">
-            <a href="#contact" class="btn primary">Hire Me</a>
-            <a href="#services" class="btn secondary">View Services</a>
-        </div>
-    </div>
+<div class="hero-content">
+
+<h1>Hi, I'm <span>Potateyy</span></h1>
+
+<p>
+Professional Discord Freelancer specializing in Discord setup,
+management, staffing systems, and French translation.
+</p>
+
+<div class="buttons">
+
+<a href="#contact" class="btn primary">
+Hire Me
+</a>
+
+<a href="#services" class="btn secondary">
+View Services
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 <section id="services">
-    <h2 class="section-title">My Services</h2>
 
-    <div class="cards">
+<h2 class="section-title">
+Services
+</h2>
 
-        <div class="card">
-            <h3>⚙️ Discord Setup</h3>
-            <p>
-                Complete Discord server creation including channels,
-                permissions, roles, bots, automations, and professional layouts.
-            </p>
-        </div>
+<div class="cards">
 
-        <div class="card">
-            <h3>👑 Discord Management</h3>
-            <p>
-                Ongoing server management, moderation systems,
-                engagement improvements, and community growth.
-            </p>
-        </div>
+<div class="card">
+<h3>⚙️ Discord Setup</h3>
+<p>
+Professional channels, permissions, bots, roles,
+and polished server layouts.
+</p>
+</div>
 
-        <div class="card">
-            <h3>🛡️ Discord Staffing</h3>
-            <p>
-                Staff recruitment systems, applications,
-                training guides, handbooks, and team organization.
-            </p>
-        </div>
+<div class="card">
+<h3>👑 Discord Management</h3>
+<p>
+Community growth, moderation systems,
+and engagement improvements.
+</p>
+</div>
 
-        <div class="card">
-            <h3>🇫🇷 French Translation</h3>
-            <p>
-                Accurate English ↔ French translations for Discord servers,
-                announcements, rules, guides, and community content.
-            </p>
-        </div>
+<div class="card">
+<h3>🛡️ Discord Staffing</h3>
+<p>
+Applications, handbooks,
+staff training and organization.
+</p>
+</div>
 
-    </div>
+<div class="card">
+<h3>🇫🇷 French Translation</h3>
+<p>
+English ↔ French translation
+for servers and documents.
+</p>
+</div>
+
+</div>
+
+</section>
+<section id="experience">
+
+<h2 class="section-title">
+Experience
+</h2>
+
+<h3 style="text-align:center;margin-bottom:30px;font-size:1.8rem;">
+Current Positions
+</h3>
+
+<div class="cards">
+
+<div class="card" style="text-align:center;max-width:450px;margin:auto;">
+<h3>✨ Founder</h3>
+
+<h2>SparkleSMP</h2>
+
+<div class="server-size">
+👥 130+ Members
+</div>
+
+<p>
+Founder and lead manager responsible for server development,
+staffing, community engagement, and overall growth.
+</p>
+
+</div>
+
+</div>
+
+<h3 style="text-align:center;margin:70px 0 30px;font-size:1.8rem;">
+Past Experience
+</h3>
+
+<div class="cards">
+
+<div class="card">
+<h3>🏰 Ex Founder</h3>
+
+<h2>ShatterMC</h2>
+
+<div class="server-size">
+👥 300+ Members
+</div>
+
+<p>
+Oversaw server operations, moderation systems,
+staff management, and community development.
+</p>
+
+</div>
+
+<div class="card">
+<h3>⚔️ Ex Owner</h3>
+
+<h2>RiftSMP</h2>
+
+<div class="server-size">
+👥 500+ Members
+</div>
+
+<p>
+Managed events, staffing,
+and strategic decisions for the server.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🛡️ Ex Senior Moderator</h3>
+
+<h2>SMP Finder</h2>
+
+<div class="server-size">
+👥 50,000+ Members
+</div>
+
+<p>
+Helped moderate one of the largest
+Minecraft community hubs and coordinated staff.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="stats">
+
+<h2 class="section-title">
+Statistics
+</h2>
+
+<div class="cards">
+
+<div class="card" style="text-align:center;">
+<h1 style="color:#a855f7;font-size:3rem;">
+4+
+</h1>
+
+<h3>Communities Managed</h3>
+
+</div>
+
+<div class="card" style="text-align:center;">
+<h1 style="color:#a855f7;font-size:3rem;">
+50K+
+</h1>
+
+<h3>Largest Community Experience</h3>
+
+</div>
+
+<div class="card" style="text-align:center;">
+<h1 style="color:#a855f7;font-size:3rem;">
+4
+</h1>
+
+<h3>Specialized Services</h3>
+
+</div>
+
+<div class="card" style="text-align:center;">
+<h1 style="color:#a855f7;font-size:3rem;">
+100%
+</h1>
+
+<h3>Commitment to Quality</h3>
+
+</div>
+
+</div>
+
 </section>
 
 <section id="about">
-    <h2 class="section-title">About Me</h2>
 
-    <div class="about">
-        <p>
-            I'm Potateyy, a Discord freelancer focused on helping communities
-            look professional, stay organized, and grow successfully.
-            Whether you need a brand-new server, a complete management overhaul,
-            staff systems, or bilingual French support, I can help create a
-            polished experience for your members!
-        </p>
-    </div>
+<h2 class="section-title">
+About Me
+</h2>
+
+<div class="card" style="max-width:900px;margin:auto;text-align:center;">
+
+<p style="line-height:1.9;color:#cbd5e1;">
+
+I'm Potateyy, a Discord freelancer dedicated to helping communities
+look professional, stay organized, and grow successfully.
+
+With experience ranging from smaller SMP communities to large
+50,000-member servers, I specialize in creating polished Discord
+experiences through server setup, management, staffing systems,
+and French translation.
+
+Whether you're starting a new community or improving an existing one,
+I'm here to help.
+
+</p>
+
+</div>
+
 </section>
 
-<section id="experience">
-    <h2 class="section-title">Experience</h2>
+<section id="reviews">
 
-    <h3 class="experience-heading">Current Positions</h3>
+<h2 class="section-title">
+Client Reviews
+</h2>
 
-    <div class="current-positions">
+<div class="testimonial-container">
 
-        <div class="card">
-            <h3>✨ Founder</h3>
-            <p><strong>SparkleSMP</strong></p>
-            <p>130+ Members</p>
-            <p>
-        </div>
+<div class="testimonial active">
 
-    </div>
+<div class="stars">
+★★★★★
+</div>
 
-    <h3 class="experience-heading past-heading">Past Experience</h3>
+<p>
+"Potateyy completely transformed our Discord server. The channels,
+permissions, and bots were perfectly organized and looked incredibly professional."
+</p>
 
-    <div class="cards">
+<h4>
+— Community Owner
+</h4>
 
-        <div class="card">
-            <h3>🏰 Founder</h3>
-            <p><strong>ShatterMC</strong></p>
-            <p>300+ Members</p>
-            </p>
-        </div>
+</div>
 
-        <div class="card">
-            <h3>⚔️ Owner</h3>
-            <p><strong>RiftSMP</strong></p>
-            <p>500+ Members</p>
-            </p>
-        </div>
+<div class="testimonial">
 
-        <div class="card">
-            <h3>🛡️ Senior Moderator</h3>
-            <p><strong>SMP Finder</strong></p>
-            <p>50,000+ Members</p>
-            </p>
-        </div>
+<div class="stars">
+★★★★★
+</div>
 
-    </div>
+<p>
+"Excellent staffing systems and management. Applications, handbooks,
+and moderation structure were all set up flawlessly."
+</p>
+
+<h4>
+— SMP Administrator
+</h4>
+
+</div>
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Very friendly and professional. Communication was excellent and our
+community became much easier to manage afterwards."
+</p>
+
+<h4>
+— Server Owner
+</h4>
+
+</div>
+
+<div class="testimonial">
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+"Fast, reliable and knowledgeable. Highly recommended for anyone needing
+Discord setup or community management."
+</p>
+
+<h4>
+— Community Manager
+</h4>
+
+</div>
+
+<div class="carousel-buttons">
+
+<button onclick="prevReview()">
+❮
+</button>
+
+<button onclick="nextReview()">
+❯
+</button>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="testimonials">
-    <h2 class="section-title">Client Testimonials</h2>
+<section id="contact">
 
-    <div class="testimonial-carousel">
+<h2 class="section-title">
+Contact Me
+</h2>
 
-        <div class="testimonial active">
-            <div class="stars">★★★★★</div>
-            <p>
-                "Potateyy completely transformed our Discord server. The channel
-                organization, permissions, and bot setup were incredibly
-                professional. Our community became much easier to manage."
-            </p>
-            <h4>— Community Member</h4>
-        </div>
+<div class="cards">
 
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>
-                "The staffing Potateyy provided us was exactly what we
-                needed. Applications, training resources, and staff structure
-                were all organized perfectly."
-            </p>
-            <h4>— SMP Administrator</h4>
-        </div>
+<div class="card" style="text-align:center;">
 
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>
-                "Excellent communication and management skills. Potateyy helped
-                improve engagement and created a much more professional
-                experience for our members."
-            </p>
-            <h4>— Community Member</h4>
-        </div>
+<h3>
+💬 Discord
+</h3>
 
-        <div class="testimonial">
-            <div class="stars">★★★★★</div>
-            <p>
-                "Fast, reliable, and knowledgeable. From server setup to staff
-                organization, everything was delivered to a high standard."
-            </p>
-            <h4>— Server Owner</h4>
-        </div>
+<p>
+Reach out directly on Discord.
+</p>
 
-    </div>
+<div class="server-size">
+potateyy
+</div>
 
-    <div class="carousel-buttons">
-    <button onclick="prevReview()">❮</button>
-    <button onclick="nextReview()">❯</button>
-    </div>
+</div>
+
+<div class="card" style="text-align:center;">
+
+<h3>
+📧 Email
+</h3>
+
+<p>
+For commissions and inquiries.
+</p>
+
+<div class="server-size">
+potateyy1@outlook.com
+</div>
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:40px;text-align:center;max-width:800px;margin-left:auto;margin-right:auto;">
+
+<h2 style="margin-bottom:20px;color:#a855f7;">
+Ready to Improve Your Community?
+</h2>
+
+<p style="color:#cbd5e1;line-height:1.8;">
+Whether you need a professional Discord setup,
+staff management systems, or complete server management,
+I'm here to help.
+</p>
+
+<br>
+
+<a href="mailto:potateyy1@outlook.com"
+style="
+display:inline-block;
+padding:16px 35px;
+background:#a855f7;
+color:white;
+text-decoration:none;
+border-radius:15px;
+transition:.4s;
+">
+Get In Touch
+</a>
+
+</div>
+
 </section>
 
-<section id="contact" class="contact">
-    <h2 class="section-title">Contact Me</h2>
+<footer
+style="
+text-align:center;
+padding:40px;
+margin-top:80px;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,.1);
+">
 
-    <div class="contact-container">
+<h2 style="color:#a855f7;">
+Potateyy
+</h2>
 
-        <div class="contact-card">
-            <div class="contact-icon">💬</div>
-            <h3>Discord</h3>
-            <p>Reach out directly on Discord for commissions, questions, or project discussions.</p>
-            <span class="contact-info">potateyy</span>
-        </div>
+<p>
+Discord Setup • Management • Staffing • French Translation
+</p>
 
-        <div class="contact-card">
-            <div class="contact-icon">📧</div>
-            <h3>Email</h3>
-            <p>Prefer email? Send me a message and I'll get back to you as soon as possible.</p>
-            <span class="contact-info">potateyy1@outlook.com</span>
-        </div>
+<br>
 
-    </div>
+<p>
+© 2026 Potateyy. All rights reserved.
+</p>
 
-    <div class="contact-footer">
-        <h3>Ready to Improve Your Discord Server?</h3>
-        <p>
-            Whether you need a professional setup, community management,
-            staffing systems, or French translation services,
-            I'm here to help.
-        </p>
-
-        <a href="https://discord.com/channels/@me" class="contact-button">
-            Get In Touch
-        </a>
-    </div>
-</section>
-
-<footer>
-    © 2026 Potateyy • Discord Freelancer
 </footer>
+
+<style>
+
+.testimonial-container{
+max-width:900px;
+margin:auto;
+}
+
+.testimonial{
+display:none;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+padding:40px;
+border-radius:25px;
+text-align:center;
+animation:fade .6s ease;
+}
+
+.testimonial.active{
+display:block;
+}
+
+.stars{
+font-size:1.6rem;
+color:#fbbf24;
+margin-bottom:20px;
+}
+
+.testimonial p{
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.testimonial h4{
+margin-top:25px;
+color:#a855f7;
+}
+
+.carousel-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:25px;
+}
+
+.carousel-buttons button{
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:#a855f7;
+color:white;
+font-size:1.4rem;
+cursor:pointer;
+transition:.4s;
+}
+
+.carousel-buttons button:hover{
+transform:scale(1.1);
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+</style>
+
+<script>
+
+const reviews = document.querySelectorAll(".testimonial");
+
+let currentReview = 0;
+
+function showReview(index){
+
+reviews.forEach(review=>{
+review.classList.remove("active");
+});
+
+reviews[index].classList.add("active");
+
+}
+
+function nextReview(){
+
+currentReview++;
+
+if(currentReview >= reviews.length){
+currentReview = 0;
+}
+
+showReview(currentReview);
+
+}
+
+function prevReview(){
+
+currentReview--;
+
+if(currentReview < 0){
+currentReview = reviews.length - 1;
+}
+
+showReview(currentReview);
+
+}
+
+setInterval(nextReview,7000);
+
+showReview(0);
+
+</script>
 
 </body>
 </html>
