@@ -279,6 +279,47 @@ footer{
         display:none;
     }
 }
+
+.server-size{
+    display:inline-block;
+    margin:10px 0;
+    padding:8px 14px;
+    border-radius:999px;
+    background:rgba(168,85,247,0.15);
+    border:1px solid rgba(168,85,247,0.3);
+    color:#c084fc;
+    font-weight:600;
+}
+
+.experience-heading{
+    text-align:center;
+    font-size:1.8rem;
+    margin-bottom:30px;
+    color:#ffffff;
+}
+
+.past-heading{
+    margin-top:70px;
+}
+
+.card strong{
+    color:#ffffff;
+    font-size:1.05rem;
+}
+
+.fade-in{
+    opacity:0;
+    transform:translateY(25px);
+    animation:fadeUp .8s ease forwards;
+}
+
+@keyframes fadeUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 <body>
@@ -366,26 +407,42 @@ footer{
 <section id="experience">
     <h2 class="section-title">Experience</h2>
 
+    <h3 class="experience-heading">Current Positions</h3>
+
     <div class="cards">
 
         <div class="card">
-            <h3>👑 Founder</h3>
-            <p>Founder of SparkleSMP, building a welcoming and engaging community focused on member experience.</p>
+            <h3>✨ Founder</h3>
+            <p><strong>SparkleSMP</strong></p>
+            <p>130+ Members</p>
+            <p>
+        </div>
+
+    </div>
+
+    <h3 class="experience-heading past-heading">Past Experience</h3>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🏰 Founder</h3>
+            <p><strong>ShatterMC</strong></p>
+            <p>300+ Members</p>
+            </p>
         </div>
 
         <div class="card">
-            <h3>🏰 Ex Founder</h3>
-            <p>Former Founder of ShatterMC, overseeing server development, staffing, management, and community growth.</p>
+            <h3>⚔️ Owner</h3>
+            <p><strong>RiftSMP</strong></p>
+            <p>500+ Members</p>
+            </p>
         </div>
 
         <div class="card">
-            <h3>⚔️ Ex Owner</h3>
-            <p>Former Owner of RiftSMP, responsible for server operations, strategic decisions, and team leadership.</p>
-        </div>
-
-        <div class="card">
-            <h3>🛡️ Ex Senior Moderator</h3>
-            <p>Former Senior Moderator at SMP Finder, assisting with moderation, staff coordination, and community support.</p>
+            <h3>🛡️ Senior Moderator</h3>
+            <p><strong>SMP Finder</strong></p>
+            <p>50,000+ Members</p>
+            </p>
         </div>
 
     </div>
