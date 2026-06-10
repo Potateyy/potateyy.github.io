@@ -278,9 +278,68 @@ transform:translateY(-3px);
     box-shadow:0 15px 30px rgba(168,85,247,.3);
 }
 
+.status-banner{
+    width:100%;
+    background:rgba(0,0,0,.25);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:18px 0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+}
+
+.status-dot{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    background:#38bdf8;
+    box-shadow:
+        0 0 10px #38bdf8,
+        0 0 20px #38bdf8;
+    animation:pulse 2s infinite;
+}
+
+.status-text{
+    color:#38bdf8;
+    font-size:1.1rem;
+    letter-spacing:4px;
+    font-weight:500;
+}
+
+@keyframes pulse{
+
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    50%{
+        opacity:.7;
+        transform:scale(1.15);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
 </style>
 </head>
 <body>
+
+<div class="status-banner">
+
+    <span class="status-dot"></span>
+
+    <span class="status-text">
+        Available for staff positions
+    </span>
+
+</div>
 
 <div class="background"></div>
 
@@ -985,8 +1044,6 @@ showAbout(currentAbout);
 
 }
 
-showAbout(0);
-
 </script>
 
 function toggleExperience(){
@@ -1014,6 +1071,9 @@ if(moreExperience.style.display === "none"){
 }
 
 }
+
+showAbout(0);
+
 
 </body>
 </html>
