@@ -407,32 +407,39 @@ footer{
     }
 }
 
-let currentReview = 0;
-const reviews = document.querySelectorAll('.testimonial');
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-function showReview(index){
-    reviews.forEach(review =>
-        review.classList.remove('active')
-    );
+    let currentReview = 0;
+    const reviews = document.querySelectorAll(".testimonial");
 
-    reviews[index].classList.add('active');
-}
+    function showReview(index) {
+        reviews.forEach(review => {
+            review.classList.remove("active");
+        });
 
-function nextReview(){
-    currentReview = (currentReview + 1) % reviews.length;
-    showReview(currentReview);
-}
+        reviews[index].classList.add("active");
+    }
 
-function prevReview(){
-    currentReview =
-        (currentReview - 1 + reviews.length) % reviews.length;
-    showReview(currentReview);
-}
+    function nextReview() {
+        currentReview = (currentReview + 1) % reviews.length;
+        showReview(currentReview);
+    }
 
-setInterval(nextReview, 5000);
+    function prevReview() {
+        currentReview = (currentReview - 1 + reviews.length) % reviews.length;
+        showReview(currentReview);
+    }
 
-showReview(0);
+    window.nextReview = nextReview;
+    window.prevReview = prevReview;
 
+    showReview(0);
+
+    setInterval(nextReview, 5000);
+
+});
+</script>
 </style>
 </head>
 </script>
@@ -574,13 +581,13 @@ showReview(0);
                 organization, permissions, and bot setup were incredibly
                 professional. Our community became much easier to manage."
             </p>
-            <h4>— Community Owner</h4>
+            <h4>— Community Member</h4>
         </div>
 
         <div class="testimonial">
             <div class="stars">★★★★★</div>
             <p>
-                "The staffing system Potateyy built for us was exactly what we
+                "The staffing Potateyy provided us was exactly what we
                 needed. Applications, training resources, and staff structure
                 were all organized perfectly."
             </p>
@@ -594,7 +601,7 @@ showReview(0);
                 improve engagement and created a much more professional
                 experience for our members."
             </p>
-            <h4>— Discord Community Manager</h4>
+            <h4>— Community Member</h4>
         </div>
 
         <div class="testimonial">
@@ -603,14 +610,14 @@ showReview(0);
                 "Fast, reliable, and knowledgeable. From server setup to staff
                 organization, everything was delivered to a high standard."
             </p>
-            <h4>— Gaming Server Owner</h4>
+            <h4>— Server Owner</h4>
         </div>
 
     </div>
 
     <div class="carousel-buttons">
-        <button onclick="prevReview()">❮</button>
-        <button onclick="nextReview()">❯</button>
+    <button onclick="prevReview()">❮</button>
+    <button onclick="nextReview()">❯</button>
     </div>
 </section>
 
