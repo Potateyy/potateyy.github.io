@@ -210,6 +210,58 @@ color:#a855f7;
 width:100%;
 }
 
+.about-carousel{
+max-width:900px;
+margin:auto;
+}
+
+.about-slide{
+display:none;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.1);
+border-radius:25px;
+padding:50px;
+text-align:center;
+animation:fade .6s ease;
+}
+
+.about-slide.active{
+display:block;
+}
+
+.about-slide h3{
+color:#a855f7;
+margin-bottom:20px;
+font-size:2rem;
+}
+
+.about-slide p{
+color:#cbd5e1;
+line-height:2;
+}
+
+.about-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:25px;
+}
+
+.about-buttons button{
+padding:16px 24px;
+border:none;
+border-radius:16px;
+background:#a855f7;
+color:white;
+cursor:pointer;
+font-size:1rem;
+transition:.4s;
+}
+
+.about-buttons button:hover{
+transform:translateY(-3px);
+}
+
 </style>
 </head>
 <body>
@@ -281,7 +333,7 @@ and engagement improvements.
 <div class="card">
 <h3>🛡️ Discord Staffing</h3>
 <p>
-Applications, handbooks,
+Moderation, support,
 staff training and organization.
 </p>
 </div>
@@ -325,8 +377,6 @@ class="server-link">
 </div>
 
 <p>
-Founder and lead manager responsible for server development,
-staffing, community engagement, and overall growth.
 </p>
 
 </div>
@@ -349,8 +399,6 @@ Past Experience
 </div>
 
 <p>
-Oversaw server operations, moderation systems,
-staff management, and community development.
 </p>
 
 </div>
@@ -365,8 +413,6 @@ staff management, and community development.
 </div>
 
 <p>
-Managed events, staffing,
-and strategic decisions for the server.
 </p>
 
 </div>
@@ -382,8 +428,6 @@ and strategic decisions for the server.
 </div>
 
 <p>
-Helped moderate one of the largest
-Minecraft community hubs and coordinated staff.
 </p>
 
 </div>
@@ -446,45 +490,57 @@ Statistics
 About Me
 </h2>
 
-<div class="cards">
+<div class="about-carousel">
 
-<div class="card">
+<div class="about-slide active">
 
 <h3>👋 Who I Am</h3>
 
-<p style="line-height:1.9;color:#cbd5e1;">
-Hi, I'm <span style="color:#a855f7;font-weight:600;">Potateyy</span>, a Discord freelancer passionate about helping communities build professional, organized, and engaging environments. I enjoy creating communities that are not only visually appealing but also easy to manage and enjoyable for members.
+<p>
+Hi, I'm <span style="color:#a855f7;font-weight:600;">Potateyy</span>, a Discord freelancer passionate about helping communities build professional and enjoyable environments.
 </p>
 
 </div>
 
-<div class="card">
+<div class="about-slide">
 
 <h3>📚 My Experience</h3>
 
-<p style="line-height:1.9;color:#cbd5e1;">
-Over the years, I've gained experience through multiple leadership and moderation positions. I've founded communities such as SparkleSMP and previously ShatterMC, owned RiftSMP, and served as a Senior Moderator at SMP Finder, a community with over 50,000 members. These roles have helped me develop strong skills in community management, staff coordination, moderation, and leadership.
+<p>
+I've founded communities such as SparkleSMP and ShatterMC, owned RiftSMP, and served as Senior Moderator at SMP Finder with over 50,000 members.
 </p>
 
 </div>
 
-<div class="card">
+<div class="about-slide">
 
 <h3>⚙️ What I Offer</h3>
 
-<p style="line-height:1.9;color:#cbd5e1;">
-I specialize in Discord setup, Discord management, staffing systems, and French translation. Whether you need a complete server setup, staff applications and handbooks, moderation systems, or help maintaining and growing your community, I strive to provide reliable and high-quality solutions tailored to your needs.
+<p>
+I specialize in Discord setup, management, staffing systems, and French translation, delivering polished and professional solutions.
 </p>
 
 </div>
 
-<div class="card">
+<div class="about-slide">
 
 <h3>🎯 My Goal</h3>
 
-<p style="line-height:1.9;color:#cbd5e1;">
-My goal is simple: to help server owners turn their ideas into thriving communities. I believe that successful communities are built on strong foundations, professional organization, and positive member experiences. No matter the size of your server, I'm committed to helping you create something truly special.
+<p>
+My goal is to help communities establish strong foundations and provide exceptional experiences for their members.
 </p>
+
+</div>
+
+<div class="about-buttons">
+
+<button onclick="prevAbout()">
+← Who I Am
+</button>
+
+<button onclick="nextAbout()">
+My Experience →
+</button>
 
 </div>
 
@@ -799,6 +855,73 @@ showReview(currentReview);
 setInterval(nextReview,7000);
 
 showReview(0);
+
+</script>
+
+<script>
+
+const aboutSlides = document.querySelectorAll(".about-slide");
+
+const names = [
+"Who I Am",
+"My Experience",
+"What I Offer",
+"My Goal"
+];
+
+let currentAbout = 0;
+
+function updateAboutButtons(){
+
+const prev =
+(currentAbout - 1 + names.length) % names.length;
+
+const next =
+(currentAbout + 1) % names.length;
+
+document.querySelector(".about-buttons button:first-child").innerHTML =
+"← " + names[prev];
+
+document.querySelector(".about-buttons button:last-child").innerHTML =
+names[next] + " →";
+
+}
+
+function showAbout(index){
+
+aboutSlides.forEach(slide=>{
+slide.classList.remove("active");
+});
+
+aboutSlides[index].classList.add("active");
+
+updateAboutButtons();
+
+}
+
+function nextAbout(){
+
+currentAbout++;
+
+if(currentAbout >= aboutSlides.length)
+currentAbout = 0;
+
+showAbout(currentAbout);
+
+}
+
+function prevAbout(){
+
+currentAbout--;
+
+if(currentAbout < 0)
+currentAbout = aboutSlides.length - 1;
+
+showAbout(currentAbout);
+
+}
+
+showAbout(0);
 
 </script>
 
