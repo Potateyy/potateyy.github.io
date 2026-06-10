@@ -2111,13 +2111,29 @@ behavior:"smooth"
 
 });
 
-const words=[
+const text = "Potateyy";
 
-"Potateyy",
-"a Discord Freelancer",
-"a Community Manager",
-"a Staff Manager",
-"a Translator"
+let charIndex = 0;
+
+const typing = document.getElementById("typing");
+
+function type(){
+
+if(charIndex < text.length){
+
+typing.innerHTML += text.charAt(charIndex);
+
+charIndex++;
+
+setTimeout(type,100);
+
+}
+
+}
+
+type();
+
+];
 
 ];
 
