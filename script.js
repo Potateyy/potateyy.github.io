@@ -265,34 +265,35 @@ popup.classList.remove("show");
    COPY BUTTONS
 ========================= */
 
-function copyDiscord(){
+function copyDiscord() {
 
-if(navigator.clipboard){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
 
-navigator.clipboard.writeText("potateyy")
-.then(()=>{
+        navigator.clipboard.writeText("potateyy")
+        .then(() => {
+            showPopup("✓ Discord copied!");
+        })
+        .catch(fallbackCopyDiscord);
 
-showPopup("✓ Discord copied!");
+    } else {
 
-});
+        fallbackCopyDiscord();
 
-}
-
-else{
-
-const textArea = document.createElement("textarea");
-textArea.value = "potateyy";
-
-document.body.appendChild(textArea);
-
-textArea.select();
-document.execCommand("copy");
-
-document.body.removeChild(textArea);
-
-showPopup("✓ Discord copied!");
+    }
 
 }
+
+function fallbackCopyDiscord() {
+
+    const textarea = document.createElement("textarea");
+    textarea.value = "potateyy";
+
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    showPopup("✓ Discord copied!");
 
 }
 
@@ -306,16 +307,35 @@ alert(
 
 }
 
-function copyEmail(){
+function copyEmail() {
 
-if(navigator.clipboard){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
 
-navigator.clipboard.writeText("potateyy1@outlook.com")
-.then(()=>{
+        navigator.clipboard.writeText("potateyy1@outlook.com")
+        .then(() => {
+            showPopup("✓ Email copied!");
+        })
+        .catch(fallbackCopyEmail);
 
-showPopup("✓ Email copied!");
+    } else {
 
-});
+        fallbackCopyEmail();
+
+    }
+
+}
+
+function fallbackCopyEmail() {
+
+    const textarea = document.createElement("textarea");
+    textarea.value = "potateyy1@outlook.com";
+
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    showPopup("✓ Email copied!");
 
 }
 
