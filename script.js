@@ -72,9 +72,7 @@ document.getElementById("typing");
 if(typing){
 
 const words=[
-"Potateyy",
-"Discord Freelancer",
-"Community Manager"
+"Potateyy"
 ];
 
 let wordIndex=0;
@@ -100,7 +98,7 @@ if(charIndex===currentWord.length){
 
 deleting=true;
 
-setTimeout(type,1500);
+setTimeout(type,5000);
 
 return;
 
