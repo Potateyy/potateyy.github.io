@@ -1,225 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Discord Setup | Potateyy</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-background:#0f172a;
-color:white;
-overflow-x:hidden;
-}
-
-.background{
-position:fixed;
-inset:0;
-background:linear-gradient(135deg,#0f172a,#111827,#1e1b4b);
-z-index:-10;
-}
-
-.background::before{
-content:"";
-position:absolute;
-width:1200px;
-height:1200px;
-left:-400px;
-top:-300px;
-background:radial-gradient(circle,rgba(168,85,247,.2),transparent 70%);
-filter:blur(80px);
-}
-
-section{
-padding:100px 8%;
-}
-
-nav{
-position:sticky;
-top:0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 8%;
-background:rgba(15,23,42,.8);
-backdrop-filter:blur(15px);
-z-index:1000;
-}
-
-.logo{
-font-size:1.8rem;
-font-weight:700;
-color:#a855f7;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-}
-
-.nav-links a{
-text-decoration:none;
-color:white;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:#a855f7;
-}
-
 .hero{
-min-height:60vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
-
-.hero-content{
-max-width:900px;
-}
-
-.hero h1{
-font-size:4rem;
-margin-bottom:25px;
-}
-
-.hero span{
-color:#a855f7;
-}
-
-.hero p{
-color:#cbd5e1;
-line-height:2;
-font-size:1.1rem;
-}
-
-.btn{
-display:inline-block;
-margin-top:40px;
-padding:18px 32px;
-border-radius:15px;
-background:#a855f7;
-color:white;
-text-decoration:none;
-transition:.4s;
-}
-
-.btn:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 35px rgba(168,85,247,.3);
-}
-
-.section-title{
-font-size:2.8rem;
-text-align:center;
-color:#a855f7;
-margin-bottom:60px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.card{
-padding:35px;
-border-radius:30px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.08);
-backdrop-filter:blur(25px);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-border-color:rgba(168,85,247,.4);
-}
-
-.card h3{
-color:#a855f7;
-margin-bottom:20px;
-}
-
-.card p{
-line-height:1.9;
-color:#cbd5e1;
-}
-
-.pricing{
-text-align:center;
-max-width:800px;
-margin:auto;
-}
-
-.price-card{
-padding:50px;
-border-radius:30px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(168,85,247,.2);
-}
-
-.price{
-font-size:4rem;
-color:#a855f7;
-margin:25px 0;
-}
-
-ul{
-list-style:none;
-margin-top:30px;
-}
-
-ul li{
-padding:15px 0;
-color:#cbd5e1;
-border-bottom:1px solid rgba(255,255,255,.05);
-}
-
-.footer{
-padding:80px 20px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.1);
-margin-top:100px;
-}
-
-.footer h2{
-color:#a855f7;
-margin-bottom:20px;
-}
-
-.footer p{
-color:#94a3b8;
-line-height:2;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:3rem;
-}
-
-.nav-links{
-display:none;
-}
-
+min-height:70vh;
 }
 
 .carousel-container{
@@ -227,13 +25,13 @@ display:flex;
 align-items:center;
 justify-content:center;
 gap:30px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 }
 
 .carousel{
 width:100%;
-max-width:900px;
+max-width:950px;
 }
 
 .carousel img{
@@ -241,7 +39,6 @@ width:100%;
 border-radius:30px;
 border:1px solid rgba(255,255,255,.1);
 box-shadow:0 20px 50px rgba(0,0,0,.4);
-transition:.5s;
 }
 
 .carousel-btn{
@@ -257,8 +54,7 @@ transition:.3s;
 }
 
 .carousel-btn:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 35px rgba(168,85,247,.3);
+transform:translateY(-5px);
 }
 
 .dots{
@@ -274,7 +70,6 @@ height:12px;
 border-radius:50%;
 background:rgba(255,255,255,.15);
 cursor:pointer;
-transition:.3s;
 }
 
 .dot.active{
@@ -282,21 +77,30 @@ background:#a855f7;
 box-shadow:0 0 15px #a855f7;
 }
 
-@media(max-width:768px){
-
-.carousel-container{
-gap:15px;
+.price-card{
+max-width:800px;
+margin:auto;
+text-align:center;
 }
 
-.carousel-btn{
-width:50px;
-height:50px;
-font-size:1.2rem;
+.price{
+font-size:4rem;
+color:#a855f7;
+margin:25px 0;
 }
 
+ul{
+list-style:none;
+margin-top:30px;
+}
+
+ul li{
+padding:15px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
 }
 
 </style>
+
 </head>
 
 <body>
@@ -304,13 +108,31 @@ font-size:1.2rem;
 <div class="background"></div>
 
 <nav>
-<div class="logo">Potateyy</div>
+
+<div class="logo">
+Potateyy
+</div>
 
 <div class="nav-links">
-<a href="index.html">Home</a>
-<a href="#features">Features</a>
-<a href="#pricing">Pricing</a>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="#features">
+Features
+</a>
+
+<a href="#gallery">
+Gallery
+</a>
+
+<a href="#pricing">
+Pricing
+</a>
+
 </div>
+
 </nav>
 
 <section class="hero">
@@ -322,11 +144,14 @@ font-size:1.2rem;
 </h1>
 
 <p>
-Professional Discord server setup services designed to give your community a polished, organized, and user-friendly experience. Whether you're starting from scratch or improving an existing server, I can help create a setup tailored to your needs.
+Professional Discord server setup services designed to give your community a polished, organized, and user-friendly experience.
 </p>
 
-<a href="index.html#contact" class="btn">
-Get In Touch
+<a href="index.html#contact"
+class="btn primary">
+
+Contact Me
+
 </a>
 
 </div>
@@ -342,45 +167,63 @@ What's Included
 <div class="cards">
 
 <div class="card">
+
 <h3>📁 Channel Organization</h3>
+
 <p>
-Clean category layouts and channels that make your server easy to navigate.
+Clean categories and channels that are easy to navigate.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>🎭 Roles & Permissions</h3>
+
 <p>
-Professional role hierarchy and permission systems for members and staff.
+Professional role hierarchy and permissions.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>🤖 Bot Configuration</h3>
+
 <p>
-Setup and configuration of moderation, utility, ticket, and leveling bots.
+Setup of moderation, utility and ticket bots.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>🎫 Ticket Systems</h3>
+
 <p>
-Support ticket systems for applications, customer support, and reports.
+Support and application ticket systems.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>📜 Rules & Information</h3>
+
 <p>
-Clear rules, announcements, and information channels for your community.
+Clear information channels and server rules.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>✨ Custom Features</h3>
+
 <p>
-Suggestions and custom layouts based on your server's goals and community.
+Personalized layouts and systems for your server.
 </p>
+
 </div>
 
 </div>
@@ -389,20 +232,34 @@ Suggestions and custom layouts based on your server's goals and community.
 
 <section id="gallery">
 
+<h2 class="section-title">
+Previous Setups
+</h2>
+
 <div class="carousel-container">
 
-<button class="carousel-btn prev" onclick="prevImage()">
+<button
+class="carousel-btn"
+onclick="prevImage()">
+
 ❮
+
 </button>
 
 <div class="carousel">
 
-<img id="galleryImage" src="images/setup1.png" alt="Discord Setup">
+<img
+id="galleryImage"
+src="images/setup1.png">
 
 </div>
 
-<button class="carousel-btn next" onclick="nextImage()">
+<button
+class="carousel-btn"
+onclick="nextImage()">
+
 ❯
+
 </button>
 
 </div>
@@ -411,6 +268,8 @@ Suggestions and custom layouts based on your server's goals and community.
 
 </section>
 
+<section>
+
 <h2 class="section-title">
 Why Choose Me?
 </h2>
@@ -418,24 +277,33 @@ Why Choose Me?
 <div class="cards">
 
 <div class="card">
+
 <h3>⭐ Experienced</h3>
+
 <p>
-Experience working with communities ranging from small SMPs to servers with over 50,000 members.
+Experience with communities ranging from small SMPs to 50,000+ members.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>⚡ Professional</h3>
+
 <p>
-Focused on quality, organization, and creating a polished experience.
+Focused on quality and organization.
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>🤝 Personalized</h3>
+
 <p>
-Every setup is customized to fit your community and goals.
+Every setup is tailored to your community.
 </p>
+
 </div>
 
 </div>
@@ -448,34 +316,33 @@ Every setup is customized to fit your community and goals.
 Pricing
 </h2>
 
-<div class="pricing">
+<div class="card price-card">
 
-<div class="price-card">
-
-<h3>Discord Setup Service</h3>
+<h3>
+Discord Setup Service
+</h3>
 
 <div class="price">
-15-45$
+$15-$45
 </div>
 
 <p>
-Currently offering Discord setup services for anywhere between 15-45$ depending on size and multiple different factors.
+Pricing varies depending on server size and requirements.
 </p>
 
 <ul>
+
 <li>✓ Full server setup</li>
+
 <li>✓ Roles & permissions</li>
-<li>✓ Channel organization</li>
+
 <li>✓ Bot configuration</li>
+
 <li>✓ Ticket systems</li>
+
 <li>✓ Personalized support</li>
+
 </ul>
-
-<a href="index.html#contact" class="btn">
-Contact Me
-</a>
-
-</div>
 
 </div>
 
@@ -483,7 +350,9 @@ Contact Me
 
 <footer class="footer">
 
-<h2>Potateyy</h2>
+<h2>
+Potateyy
+</h2>
 
 <p>
 Discord Setup • Discord Management • Staffing
@@ -499,69 +368,98 @@ Discord Setup • Discord Management • Staffing
 
 <script>
 
-const images = [];
+const galleryImages=[];
 
 for(let i=1;i<=13;i++){
-images.push(`images/setup${i}.png`);
+
+galleryImages.push(
+`images/setup${i}.png`
+);
+
 }
 
-let currentSlide = 0;
+let currentImage=0;
 
-const image = document.getElementById("carouselImage");
-const dotsContainer = document.getElementById("dots");
+const image=
+document.getElementById("galleryImage");
+
+const dots=
+document.getElementById("dots");
 
 function renderDots(){
-dotsContainer.innerHTML = "";
 
-images.forEach((_,index)=>{
+dots.innerHTML="";
 
-const dot = document.createElement("div");
-dot.className = "dot";
+galleryImages.forEach((_,index)=>{
 
-if(index === currentSlide){
+const dot=
+document.createElement("div");
+
+dot.className="dot";
+
+if(index===currentImage){
+
 dot.classList.add("active");
+
 }
 
-dot.onclick = ()=>goToSlide(index);
+dot.onclick=()=>{
 
-dotsContainer.appendChild(dot);
+currentImage=index;
+
+showImage();
+
+};
+
+dots.appendChild(dot);
 
 });
+
 }
 
-function showSlide(){
-image.src = images[currentSlide];
+function showImage(){
+
+image.src=
+galleryImages[currentImage];
+
 renderDots();
+
 }
 
-function changeSlide(direction){
+function nextImage(){
 
-currentSlide += direction;
+currentImage++;
 
-if(currentSlide >= images.length){
-currentSlide = 0;
+if(currentImage>=galleryImages.length){
+
+currentImage=0;
+
 }
 
-if(currentSlide < 0){
-currentSlide = images.length - 1;
+showImage();
+
 }
 
-showSlide();
+function prevImage(){
+
+currentImage--;
+
+if(currentImage<0){
+
+currentImage=
+galleryImages.length-1;
+
 }
 
-function goToSlide(index){
-currentSlide = index;
-showSlide();
+showImage();
+
 }
 
-setInterval(()=>{
-changeSlide(1);
-},5000);
+showImage();
 
-showSlide();
+setInterval(nextImage,5000);
 
 </script>
 
 </body>
 </html>
-

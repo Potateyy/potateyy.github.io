@@ -6,19 +6,18 @@ const themeToggle = document.getElementById("themeToggle");
 
 if(themeToggle){
 
-    themeToggle.onclick = () => {
+themeToggle.onclick = ()=>{
 
-        document.body.classList.toggle("light-mode");
+document.body.classList.toggle("light-mode");
 
-        themeToggle.innerHTML =
-        document.body.classList.contains("light-mode")
-        ? "☀️"
-        : "🌙";
+themeToggle.innerHTML =
+document.body.classList.contains("light-mode")
+? "☀️"
+: "🌙";
 
-    };
+};
 
 }
-
 
 /* =========================
    MOBILE MENU
@@ -26,12 +25,14 @@ if(themeToggle){
 
 function toggleMenu(){
 
-    document
-    .getElementById("navLinks")
-    .classList.toggle("show");
+const navLinks =
+document.getElementById("navLinks");
 
+if(navLinks){
+navLinks.classList.toggle("show");
 }
 
+}
 
 /* =========================
    TYPING EFFECT
@@ -47,25 +48,22 @@ let charIndex = 0;
 
 function type(){
 
-    if(charIndex < text.length){
+if(charIndex < text.length){
 
-        typing.innerHTML +=
-        text.charAt(charIndex);
+typing.innerHTML +=
+text.charAt(charIndex);
 
-        charIndex++;
+charIndex++;
 
-        setTimeout(type,100);
+setTimeout(type,100);
 
-    }
+}
 
 }
 
 if(typing){
-
-    type();
-
+type();
 }
-
 
 /* =========================
    ABOUT CAROUSEL
@@ -78,45 +76,42 @@ let currentAbout = 0;
 
 function showAbout(index){
 
-    aboutSlides.forEach(slide=>{
+if(!aboutSlides.length) return;
 
-        slide.classList.remove("active");
+aboutSlides.forEach(slide=>{
 
-    });
+slide.classList.remove("active");
 
-    aboutSlides[index].classList.add("active");
+});
+
+aboutSlides[index]
+.classList.add("active");
 
 }
 
 function nextAbout(){
 
-    currentAbout++;
+currentAbout++;
 
-    if(currentAbout >= aboutSlides.length){
+if(currentAbout >= aboutSlides.length){
+currentAbout = 0;
+}
 
-        currentAbout = 0;
-
-    }
-
-    showAbout(currentAbout);
+showAbout(currentAbout);
 
 }
 
 function prevAbout(){
 
-    currentAbout--;
+currentAbout--;
 
-    if(currentAbout < 0){
-
-        currentAbout =
-        aboutSlides.length-1;
-
-    }
-
-    showAbout(currentAbout);
-
+if(currentAbout < 0){
+currentAbout = aboutSlides.length-1;
 }
 
+showAbout(currentAbout);
+
+}
 
 /* =========================
    EXPERIENCE BUTTON
@@ -124,160 +119,38 @@ function prevAbout(){
 
 function toggleExperience(){
 
-    const section =
-    document.getElementById("extraExperience");
+const section =
+document.getElementById("extraExperience");
 
-    const buttonText =
-    document.getElementById("buttonText");
+const buttonText =
+document.getElementById("buttonText");
 
-    const arrow =
-    document.getElementById("arrow");
+const arrow =
+document.getElementById("arrow");
 
-    section.classList.toggle("show");
+if(!section) return;
 
-    if(section.classList.contains("show")){
+section.classList.toggle("show");
 
-        buttonText.innerHTML =
-        "View Less Experience";
+if(section.classList.contains("show")){
 
-        arrow.innerHTML = "▲";
+buttonText.innerHTML =
+"View Less Experience";
 
-    }
-
-    else{
-
-        buttonText.innerHTML =
-        "View More Experience";
-
-        arrow.innerHTML = "▼";
-
-    }
+arrow.innerHTML = "▲";
 
 }
 
+else{
 
-/* =========================
-   GALLERY
-========================= */
+buttonText.innerHTML =
+"View More Experience";
 
-const galleryImages=[
-
-"images/setup1.png",
-"images/setup2.png",
-"images/setup3.png",
-"images/setup4.png",
-"images/setup5.png",
-"images/setup6.png",
-"images/setup7.png",
-"images/setup8.png",
-"images/setup9.png",
-"images/setup10.png",
-"images/setup11.png",
-"images/setup12.png",
-"images/setup13.png"
-
-];
-
-const galleryTitles=[
-
-"Ticket System Setup",
-"Applications",
-"Role Connections",
-"Advanced Roles",
-"Member Roles",
-"Custom Messages",
-"Ticket Panels",
-"Staff Commands",
-"Staff Hub",
-"Staff Updates",
-"Ticket Embed System",
-"Honeypot Security",
-"Welcome System"
-
-];
-
-const gallery =
-document.getElementById("galleryImage");
-
-const galleryTitle =
-document.getElementById("galleryTitle");
-
-const galleryDots =
-document.querySelectorAll(".gallery-dot");
-
-let currentImage = 0;
-
-function showImage(index){
-
-    currentImage = index;
-
-    if(gallery){
-        gallery.src = galleryImages[index];
-    }
-
-    if(galleryTitle){
-        galleryTitle.innerHTML = galleryTitles[index];
-    }
-
-    if(galleryDots.length){
-
-        galleryDots.forEach(dot=>{
-            dot.classList.remove("active");
-        });
-
-        galleryDots[index].classList.add("active");
-
-    }
+arrow.innerHTML = "▼";
 
 }
 
-function nextImage(){
-
-    currentImage++;
-
-    if(currentImage >= galleryImages.length){
-
-        currentImage = 0;
-
-    }
-
-    showImage(currentImage);
-
 }
-
-function prevImage(){
-
-    currentImage--;
-
-    if(currentImage < 0){
-
-        currentImage =
-        galleryImages.length-1;
-
-    }
-
-    showImage(currentImage);
-
-}
-
-galleryDots.forEach((dot,index)=>{
-
-    dot.onclick = ()=>{
-
-        showImage(index);
-
-    };
-
-});
-
-if(gallery){
-
-    showImage(0);
-
-    setInterval(nextImage,8000);
-
-}
-
 
 /* =========================
    REVIEWS
@@ -293,71 +166,77 @@ let currentReview = 0;
 
 function showReview(index){
 
-    reviews.forEach(review=>{
+if(!reviews.length) return;
 
-        review.classList.remove("active");
+reviews.forEach(review=>{
 
-    });
+review.classList.remove("active");
 
-    reviewDots.forEach(dot=>{
+});
 
-        dot.classList.remove("active");
+reviewDots.forEach(dot=>{
 
-    });
+dot.classList.remove("active");
 
-    reviews[index]
-    .classList.add("active");
+});
 
-    reviewDots[index]
-    .classList.add("active");
+reviews[index]
+.classList.add("active");
+
+if(reviewDots[index]){
+reviewDots[index]
+.classList.add("active");
+}
 
 }
 
 function nextReview(){
 
-    currentReview++;
+currentReview++;
 
-    if(currentReview >= reviews.length){
+if(currentReview >= reviews.length){
+currentReview = 0;
+}
 
-        currentReview = 0;
-
-    }
-
-    showReview(currentReview);
+showReview(currentReview);
 
 }
 
 function prevReview(){
 
-    currentReview--;
+currentReview--;
 
-    if(currentReview < 0){
+if(currentReview < 0){
+currentReview = reviews.length-1;
+}
 
-        currentReview =
-        reviews.length-1;
-
-    }
-
-    showReview(currentReview);
+showReview(currentReview);
 
 }
 
 reviewDots.forEach((dot,index)=>{
 
-    dot.onclick = ()=>{
+dot.onclick = ()=>{
 
-        currentReview = index;
+currentReview = index;
 
-        showReview(index);
+showReview(index);
 
-    };
+};
 
 });
 
+if(reviews.length){
+
 showReview(0);
 
-setInterval(nextReview,7000);
+setInterval(()=>{
 
+nextReview();
+
+},7000);
+
+}
 
 /* =========================
    COPY POPUP
@@ -368,18 +247,19 @@ document.getElementById("copyPopup");
 
 function showPopup(message){
 
-    popup.innerHTML = message;
+if(!popup) return;
 
-    popup.classList.add("show");
+popup.innerHTML = message;
 
-    setTimeout(()=>{
+popup.classList.add("show");
 
-        popup.classList.remove("show");
+setTimeout(()=>{
 
-    },2000);
+popup.classList.remove("show");
+
+},2000);
 
 }
-
 
 /* =========================
    COPY BUTTONS
@@ -387,36 +267,51 @@ function showPopup(message){
 
 function copyDiscord(){
 
-    navigator.clipboard
-    .writeText("potateyy")
+navigator.clipboard
+.writeText("potateyy")
 
-    .then(()=>{
+.then(()=>{
 
-        showPopup(
-        "✓ Discord copied!"
-        );
+showPopup(
+"✓ Discord copied!"
+);
 
-    });
+})
+
+.catch(()=>{
+
+alert(
+"Discord: potateyy"
+);
+
+});
 
 }
 
 function copyEmail(){
 
-    navigator.clipboard
-    .writeText(
-    "potateyy1@outlook.com"
-    )
+navigator.clipboard
+.writeText(
+"potateyy1@outlook.com"
+)
 
-    .then(()=>{
+.then(()=>{
 
-        showPopup(
-        "✓ Email copied!"
-        );
+showPopup(
+"✓ Email copied!"
+);
 
-    });
+})
+
+.catch(()=>{
+
+alert(
+"Email: potateyy1@outlook.com"
+);
+
+});
 
 }
-
 
 /* =========================
    SMOOTH SCROLL
@@ -427,29 +322,29 @@ document
 
 .forEach(anchor=>{
 
-    anchor.addEventListener(
+anchor.addEventListener(
 
-    "click",
+"click",
 
-    function(e){
+function(e){
 
-        e.preventDefault();
+e.preventDefault();
 
-        const target =
-        document.querySelector(
-        this.getAttribute("href")
-        );
+const target =
+document.querySelector(
+this.getAttribute("href")
+);
 
-        if(target){
+if(target){
 
-            target.scrollIntoView({
+target.scrollIntoView({
 
-                behavior:"smooth"
+behavior:"smooth"
 
-            });
+});
 
-        }
+}
 
-    });
+});
 
 });
