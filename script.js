@@ -211,20 +211,23 @@ function showImage(index){
 
     currentImage = index;
 
-    gallery.src =
-    galleryImages[index];
+    if(gallery){
+        gallery.src = galleryImages[index];
+    }
 
-    galleryTitle.innerHTML =
-    galleryTitles[index];
+    if(galleryTitle){
+        galleryTitle.innerHTML = galleryTitles[index];
+    }
 
-    galleryDots.forEach(dot=>{
+    if(galleryDots.length){
 
-        dot.classList.remove("active");
+        galleryDots.forEach(dot=>{
+            dot.classList.remove("active");
+        });
 
-    });
+        galleryDots[index].classList.add("active");
 
-    galleryDots[index]
-    .classList.add("active");
+    }
 
 }
 
@@ -267,9 +270,13 @@ galleryDots.forEach((dot,index)=>{
 
 });
 
-showImage(0);
+if(gallery){
 
-setInterval(nextImage,8000);
+    showImage(0);
+
+    setInterval(nextImage,8000);
+
+}
 
 
 /* =========================
