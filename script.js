@@ -98,7 +98,7 @@ if(charIndex===currentWord.length){
 
 deleting=true;
 
-setTimeout(type,5000);
+setTimeout(type,20000);
 
 return;
 
