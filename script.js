@@ -1,25 +1,4 @@
 /* =========================
-   THEME TOGGLE
-========================= */
-
-const themeToggle = document.getElementById("themeToggle");
-
-if(themeToggle){
-
-themeToggle.onclick = ()=>{
-
-document.body.classList.toggle("light-mode");
-
-themeToggle.innerHTML =
-document.body.classList.contains("light-mode")
-? "☀️"
-: "🌙";
-
-};
-
-}
-
-/* =========================
    MOBILE MENU
 ========================= */
 
@@ -35,34 +14,135 @@ navLinks.classList.toggle("show");
 }
 
 /* =========================
+   THEME TOGGLE
+========================= */
+
+const themeToggle =
+document.getElementById("themeToggle");
+
+if(themeToggle){
+
+themeToggle.onclick=()=>{
+
+document.body.classList.toggle("light-mode");
+
+if(document.body.classList.contains("light-mode")){
+
+themeToggle.innerHTML="☀️";
+
+localStorage.setItem(
+"theme",
+"light"
+);
+
+}
+
+else{
+
+themeToggle.innerHTML="🌙";
+
+localStorage.setItem(
+"theme",
+"dark"
+);
+
+}
+
+};
+
+if(localStorage.getItem("theme")==="light"){
+
+document.body.classList.add(
+"light-mode"
+);
+
+themeToggle.innerHTML="☀️";
+
+}
+
+}
+
+/* =========================
    TYPING EFFECT
 ========================= */
 
 const typing =
 document.getElementById("typing");
 
-const text =
-"Potateyy";
+if(typing){
 
-let charIndex = 0;
+const words=[
+"Potateyy",
+"Discord Freelancer",
+"Community Manager"
+];
+
+let wordIndex=0;
+let charIndex=0;
+let deleting=false;
 
 function type(){
 
-if(charIndex < text.length){
+const currentWord=
+words[wordIndex];
 
-typing.innerHTML +=
-text.charAt(charIndex);
+if(!deleting){
+
+typing.innerHTML=
+currentWord.substring(
+0,
+charIndex+1
+);
 
 charIndex++;
 
-setTimeout(type,100);
+if(charIndex===currentWord.length){
+
+deleting=true;
+
+setTimeout(type,1500);
+
+return;
 
 }
 
 }
 
-if(typing){
+else{
+
+typing.innerHTML=
+currentWord.substring(
+0,
+charIndex-1
+);
+
+charIndex--;
+
+if(charIndex===0){
+
+deleting=false;
+
+wordIndex++;
+
+if(wordIndex>=words.length){
+
+wordIndex=0;
+
+}
+
+}
+
+}
+
+setTimeout(
+type,
+deleting?60:100
+);
+
+}
+
 type();
+
 }
 
 /* =========================
@@ -70,9 +150,11 @@ type();
 ========================= */
 
 const aboutSlides =
-document.querySelectorAll(".about-slide");
+document.querySelectorAll(
+".about-slide"
+);
 
-let currentAbout = 0;
+let currentAbout=0;
 
 function showAbout(index){
 
@@ -80,7 +162,9 @@ if(!aboutSlides.length) return;
 
 aboutSlides.forEach(slide=>{
 
-slide.classList.remove("active");
+slide.classList.remove(
+"active"
+);
 
 });
 
@@ -93,8 +177,10 @@ function nextAbout(){
 
 currentAbout++;
 
-if(currentAbout >= aboutSlides.length){
-currentAbout = 0;
+if(currentAbout>=aboutSlides.length){
+
+currentAbout=0;
+
 }
 
 showAbout(currentAbout);
@@ -105,50 +191,20 @@ function prevAbout(){
 
 currentAbout--;
 
-if(currentAbout < 0){
-currentAbout = aboutSlides.length-1;
+if(currentAbout<0){
+
+currentAbout=
+aboutSlides.length-1;
+
 }
 
 showAbout(currentAbout);
 
 }
 
-/* =========================
-   EXPERIENCE BUTTON
-========================= */
+if(aboutSlides.length){
 
-function toggleExperience(){
-
-const section =
-document.getElementById("extraExperience");
-
-const buttonText =
-document.getElementById("buttonText");
-
-const arrow =
-document.getElementById("arrow");
-
-if(!section) return;
-
-section.classList.toggle("show");
-
-if(section.classList.contains("show")){
-
-buttonText.innerHTML =
-"View Less Experience";
-
-arrow.innerHTML = "▲";
-
-}
-
-else{
-
-buttonText.innerHTML =
-"View More Experience";
-
-arrow.innerHTML = "▼";
-
-}
+showAbout(0);
 
 }
 
@@ -157,12 +213,11 @@ arrow.innerHTML = "▼";
 ========================= */
 
 const reviews =
-document.querySelectorAll(".review");
+document.querySelectorAll(
+".review"
+);
 
-const reviewDots =
-document.querySelectorAll(".review-dot");
-
-let currentReview = 0;
+let currentReview=0;
 
 function showReview(index){
 
@@ -170,23 +225,14 @@ if(!reviews.length) return;
 
 reviews.forEach(review=>{
 
-review.classList.remove("active");
-
-});
-
-reviewDots.forEach(dot=>{
-
-dot.classList.remove("active");
+review.classList.remove(
+"active"
+);
 
 });
 
 reviews[index]
 .classList.add("active");
-
-if(reviewDots[index]){
-reviewDots[index]
-.classList.add("active");
-}
 
 }
 
@@ -194,8 +240,10 @@ function nextReview(){
 
 currentReview++;
 
-if(currentReview >= reviews.length){
-currentReview = 0;
+if(currentReview>=reviews.length){
+
+currentReview=0;
+
 }
 
 showReview(currentReview);
@@ -206,25 +254,16 @@ function prevReview(){
 
 currentReview--;
 
-if(currentReview < 0){
-currentReview = reviews.length-1;
+if(currentReview<0){
+
+currentReview=
+reviews.length-1;
+
 }
 
 showReview(currentReview);
 
 }
-
-reviewDots.forEach((dot,index)=>{
-
-dot.onclick = ()=>{
-
-currentReview = index;
-
-showReview(index);
-
-};
-
-});
 
 if(reviews.length){
 
@@ -243,127 +282,143 @@ nextReview();
 ========================= */
 
 const popup =
-document.getElementById("copyPopup");
+document.getElementById(
+"copyPopup"
+);
 
 function showPopup(message){
 
 if(!popup) return;
 
-popup.innerHTML = message;
+popup.innerHTML=message;
 
 popup.classList.add("show");
 
 setTimeout(()=>{
 
-popup.classList.remove("show");
+popup.classList.remove(
+"show"
+);
 
 },2000);
 
 }
 
 /* =========================
-   COPY BUTTONS
+   COPY FUNCTIONS
 ========================= */
 
-function copyDiscord() {
+function fallbackCopy(text){
 
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+const textArea =
+document.createElement(
+"textarea"
+);
 
-        navigator.clipboard.writeText("potateyy")
-        .then(() => {
-            showPopup("✓ Discord copied!");
-        })
-        .catch(fallbackCopyDiscord);
+textArea.value=text;
 
-    } else {
+document.body.appendChild(
+textArea
+);
 
-        fallbackCopyDiscord();
+textArea.select();
 
-    }
+document.execCommand(
+"copy"
+);
 
-}
-
-function fallbackCopyDiscord() {
-
-    const textarea = document.createElement("textarea");
-    textarea.value = "potateyy";
-
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    showPopup("✓ Discord copied!");
+document.body.removeChild(
+textArea
+);
 
 }
+
+function copyDiscord(){
+
+const text="potateyy";
+
+if(
+navigator.clipboard &&
+navigator.clipboard.writeText
+){
+
+navigator.clipboard
+.writeText(text)
+
+.then(()=>{
+
+showPopup(
+"✓ Discord copied!"
+);
+
+})
 
 .catch(()=>{
 
-alert(
-"Discord: potateyy"
+fallbackCopy(text);
+
+showPopup(
+"✓ Discord copied!"
 );
 
 });
-
-}
-
-function copyEmail() {
-
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-
-        navigator.clipboard.writeText("potateyy1@outlook.com")
-        .then(() => {
-            showPopup("✓ Email copied!");
-        })
-        .catch(fallbackCopyEmail);
-
-    } else {
-
-        fallbackCopyEmail();
-
-    }
-
-}
-
-function fallbackCopyEmail() {
-
-    const textarea = document.createElement("textarea");
-    textarea.value = "potateyy1@outlook.com";
-
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-
-    showPopup("✓ Email copied!");
 
 }
 
 else{
 
-const textArea = document.createElement("textarea");
-textArea.value = "potateyy1@outlook.com";
+fallbackCopy(text);
 
-document.body.appendChild(textArea);
-
-textArea.select();
-document.execCommand("copy");
-
-document.body.removeChild(textArea);
-
-showPopup("✓ Email copied!");
+showPopup(
+"✓ Discord copied!"
+);
 
 }
 
 }
+
+function copyEmail(){
+
+const text=
+"potateyy1@outlook.com";
+
+if(
+navigator.clipboard &&
+navigator.clipboard.writeText
+){
+
+navigator.clipboard
+.writeText(text)
+
+.then(()=>{
+
+showPopup(
+"✓ Email copied!"
+);
+
+})
 
 .catch(()=>{
 
-alert(
-"Email: potateyy1@outlook.com"
+fallbackCopy(text);
+
+showPopup(
+"✓ Email copied!"
 );
 
 });
+
+}
+
+else{
+
+fallbackCopy(text);
+
+showPopup(
+"✓ Email copied!"
+);
+
+}
 
 }
 
@@ -372,19 +427,20 @@ alert(
 ========================= */
 
 document
-.querySelectorAll('a[href^="#"]')
+.querySelectorAll(
+'a[href^="#"]'
+)
 
 .forEach(anchor=>{
 
 anchor.addEventListener(
-
 "click",
 
 function(e){
 
 e.preventDefault();
 
-const target =
+const target=
 document.querySelector(
 this.getAttribute("href")
 );
@@ -399,6 +455,8 @@ behavior:"smooth"
 
 }
 
-});
+}
+
+);
 
 });

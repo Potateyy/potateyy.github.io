@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -17,27 +18,27 @@
 <style>
 
 .hero{
-min-height:70vh;
+min-height:75vh;
 }
 
 .carousel-container{
 display:flex;
 align-items:center;
 justify-content:center;
-gap:30px;
+gap:25px;
 max-width:1200px;
 margin:auto;
 }
 
 .carousel{
-width:100%;
 max-width:950px;
+width:100%;
 }
 
 .carousel img{
 width:100%;
 border-radius:30px;
-border:1px solid rgba(255,255,255,.1);
+border:1px solid rgba(255,255,255,.08);
 box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
 
@@ -50,18 +51,13 @@ background:#a855f7;
 color:white;
 font-size:1.5rem;
 cursor:pointer;
-transition:.3s;
-}
-
-.carousel-btn:hover{
-transform:translateY(-5px);
 }
 
 .dots{
 display:flex;
 justify-content:center;
 gap:12px;
-margin-top:30px;
+margin-top:25px;
 }
 
 .dot{
@@ -78,7 +74,7 @@ box-shadow:0 0 15px #a855f7;
 }
 
 .price-card{
-max-width:800px;
+max-width:850px;
 margin:auto;
 text-align:center;
 }
@@ -86,7 +82,7 @@ text-align:center;
 .price{
 font-size:4rem;
 color:#a855f7;
-margin:25px 0;
+margin:20px 0;
 }
 
 ul{
@@ -140,11 +136,15 @@ Pricing
 <div class="hero-content">
 
 <h1>
+
 ⚙️ <span>Discord Setup</span>
+
 </h1>
 
 <p>
-Professional Discord server setup services designed to give your community a polished, organized, and user-friendly experience.
+
+Professional Discord server setup services tailored to your community. From channels and roles to bots and ticket systems, everything is built to provide a polished experience.
+
 </p>
 
 <a href="index.html#contact"
@@ -167,63 +167,45 @@ What's Included
 <div class="cards">
 
 <div class="card">
-
 <h3>📁 Channel Organization</h3>
-
 <p>
-Clean categories and channels that are easy to navigate.
+Clean and easy-to-navigate layouts.
 </p>
-
 </div>
 
 <div class="card">
-
 <h3>🎭 Roles & Permissions</h3>
-
 <p>
-Professional role hierarchy and permissions.
+Professional hierarchy and permission systems.
 </p>
-
 </div>
 
 <div class="card">
-
 <h3>🤖 Bot Configuration</h3>
-
 <p>
-Setup of moderation, utility and ticket bots.
+Moderation, utility, ticket, and leveling bots.
 </p>
-
 </div>
 
 <div class="card">
-
 <h3>🎫 Ticket Systems</h3>
-
 <p>
-Support and application ticket systems.
+Application, support, and report systems.
 </p>
-
 </div>
 
 <div class="card">
-
-<h3>📜 Rules & Information</h3>
-
+<h3>📜 Information Channels</h3>
 <p>
-Clear information channels and server rules.
+Rules, announcements, and guides.
 </p>
-
 </div>
 
 <div class="card">
-
 <h3>✨ Custom Features</h3>
-
 <p>
-Personalized layouts and systems for your server.
+Tailored layouts for your server.
 </p>
-
 </div>
 
 </div>
@@ -238,33 +220,30 @@ Previous Setups
 
 <div class="carousel-container">
 
-<button
-class="carousel-btn"
+<button class="carousel-btn"
 onclick="prevImage()">
-
 ❮
-
 </button>
 
 <div class="carousel">
 
 <img
 id="galleryImage"
-src="images/setup1.png">
+src="images/setup1.png"
+alt="Setup">
 
 </div>
 
-<button
-class="carousel-btn"
+<button class="carousel-btn"
 onclick="nextImage()">
-
 ❯
-
 </button>
 
 </div>
 
-<div class="dots" id="dots"></div>
+<div class="dots"
+id="dots">
+</div>
 
 </section>
 
@@ -278,30 +257,36 @@ Why Choose Me?
 
 <div class="card">
 
-<h3>⭐ Experienced</h3>
+<h3>
+⭐ Experienced
+</h3>
 
 <p>
-Experience with communities ranging from small SMPs to 50,000+ members.
+Experience with communities ranging from small SMPs to servers with over 50,000 members.
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>⚡ Professional</h3>
+<h3>
+⚡ Professional
+</h3>
 
 <p>
-Focused on quality and organization.
+Focused on quality, organization, and user experience.
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>🤝 Personalized</h3>
+<h3>
+🤝 Personalized
+</h3>
 
 <p>
-Every setup is tailored to your community.
+Every setup is tailored to fit your community.
 </p>
 
 </div>
@@ -327,19 +312,15 @@ $15-$45
 </div>
 
 <p>
-Pricing varies depending on server size and requirements.
+Pricing depends on server size and complexity.
 </p>
 
 <ul>
 
 <li>✓ Full server setup</li>
-
 <li>✓ Roles & permissions</li>
-
 <li>✓ Bot configuration</li>
-
 <li>✓ Ticket systems</li>
-
 <li>✓ Personalized support</li>
 
 </ul>
@@ -348,7 +329,7 @@ Pricing varies depending on server size and requirements.
 
 </section>
 
-<footer class="footer">
+<footer>
 
 <h2>
 Potateyy
@@ -357,8 +338,6 @@ Potateyy
 <p>
 Discord Setup • Discord Management • Staffing
 </p>
-
-<br>
 
 <p>
 © 2026 Potateyy. All rights reserved.
@@ -381,10 +360,14 @@ galleryImages.push(
 let currentImage=0;
 
 const image=
-document.getElementById("galleryImage");
+document.getElementById(
+"galleryImage"
+);
 
 const dots=
-document.getElementById("dots");
+document.getElementById(
+"dots"
+);
 
 function renderDots(){
 
