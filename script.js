@@ -267,16 +267,34 @@ popup.classList.remove("show");
 
 function copyDiscord(){
 
-navigator.clipboard
-.writeText("potateyy")
+if(navigator.clipboard){
 
+navigator.clipboard.writeText("potateyy")
 .then(()=>{
 
-showPopup(
-"✓ Discord copied!"
-);
+showPopup("✓ Discord copied!");
 
-})
+});
+
+}
+
+else{
+
+const textArea = document.createElement("textarea");
+textArea.value = "potateyy";
+
+document.body.appendChild(textArea);
+
+textArea.select();
+document.execCommand("copy");
+
+document.body.removeChild(textArea);
+
+showPopup("✓ Discord copied!");
+
+}
+
+}
 
 .catch(()=>{
 
@@ -290,18 +308,34 @@ alert(
 
 function copyEmail(){
 
-navigator.clipboard
-.writeText(
-"potateyy1@outlook.com"
-)
+if(navigator.clipboard){
 
+navigator.clipboard.writeText("potateyy1@outlook.com")
 .then(()=>{
 
-showPopup(
-"✓ Email copied!"
-);
+showPopup("✓ Email copied!");
 
-})
+});
+
+}
+
+else{
+
+const textArea = document.createElement("textarea");
+textArea.value = "potateyy1@outlook.com";
+
+document.body.appendChild(textArea);
+
+textArea.select();
+document.execCommand("copy");
+
+document.body.removeChild(textArea);
+
+showPopup("✓ Email copied!");
+
+}
+
+}
 
 .catch(()=>{
 
