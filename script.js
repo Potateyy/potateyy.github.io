@@ -460,3 +460,45 @@ behavior:"smooth"
 );
 
 });
+
+function toggleExperience(){
+
+const section =
+document.getElementById(
+"extraExperience"
+);
+
+const text =
+document.getElementById(
+"buttonText"
+);
+
+const arrow =
+document.getElementById(
+"arrow"
+);
+
+if(!section) return;
+
+section.classList.toggle("show");
+
+if(section.classList.contains("show")){
+
+text.innerHTML =
+"View Less Experience";
+
+arrow.innerHTML =
+"▲";
+
+}
+else{
+
+text.innerHTML =
+"View More Experience";
+
+arrow.innerHTML =
+"▼";
+
+}
+
+}
