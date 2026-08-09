@@ -71,9 +71,31 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
   event.preventDefault();
   const form = event.currentTarget;
   const status = form.querySelector('.form-status');
-  const name = new FormData(form).get('name').trim();
-  status.textContent = `Thanks, ${name}. Your message is ready to send.`;
-  form.reset();
+  const submitButton = form.querySelector('button[type="submit"]');
+  const formData = Object.fromEntries(new FormData(form).entries());
+  const name = formData.name.trim();
+
+  status.textContent = 'Sending message…';
+  submitButton.disabled = true;
+
+  fetch(form.action, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData),
+    credentials: 'same-origin',
+  })
+    .then(async (response) => {
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) throw new Error(result.error || 'Unable to send message.');
+      status.textContent = `Thanks, ${name}. Your message has been sent.`;
+      form.reset();
+    })
+    .catch(() => {
+      status.textContent = 'Message could not be sent. Please try again shortly.';
+    })
+    .finally(() => {
+      submitButton.disabled = true;
+    });
 });
 
 window.addEventListener('scroll', () => {
