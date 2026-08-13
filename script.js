@@ -98,6 +98,25 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
     });
 });
 
+document.querySelectorAll('.vouch-carousel').forEach((carousel) => {
+  const track = carousel.querySelector('.vouch-track');
+  const cards = [...carousel.querySelectorAll('.vouch-card')];
+  const previous = carousel.querySelector('[data-vouch-prev]');
+  const next = carousel.querySelector('[data-vouch-next]');
+  const counter = carousel.querySelector('.vouch-counter');
+  let current = 0;
+
+  const showVouch = (index) => {
+    current = (index + cards.length) % cards.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    counter.textContent = `${current + 1} / ${cards.length}`;
+  };
+
+  previous.addEventListener('click', () => showVouch(current - 1));
+  next.addEventListener('click', () => showVouch(current + 1));
+  showVouch(0);
+});
+
 window.addEventListener('scroll', () => {
   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
   progressBar.style.transform = `scaleX(${maxScroll ? window.scrollY / maxScroll : 0})`;
