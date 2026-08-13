@@ -91,7 +91,7 @@ document.querySelector('#contact-form').addEventListener('submit', (event) => {
       form.reset();
     })
     .catch(() => {
-      status.textContent = 'Message could not be sent. Please try again shortly.';
+      status.textContent = 'Message could not be sent. Please try dming me on Discord at "potateyy"';
     })
     .finally(() => {
       submitButton.disabled = true;
